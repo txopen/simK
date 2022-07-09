@@ -28,4 +28,5 @@ D10K
 \description{
 A synthetic dataset with information for 10.000 donors, generated with \code{donors.df()} and \code{set.seed(3)} .
 }
+\concept{data}
 \keyword{datasets}

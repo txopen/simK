@@ -13,4 +13,5 @@ agDR_MNDP
 \description{
 A character vector with  HLA-DR locus antigens, obtained from \code{MNDPhaps} dataset.
 }
+\concept{data}
 \keyword{datasets}

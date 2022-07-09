@@ -13,4 +13,5 @@ agB
 \description{
 A character vector with antigens for HLA-B locus obtained from \code{hla} dataset.
 }
+\concept{data}
 \keyword{datasets}

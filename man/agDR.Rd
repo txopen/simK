@@ -13,4 +13,5 @@ agDR
 \description{
 A character vector with antigens for HLA-DR locus obtained from \code{hla} dataset.
 }
+\concept{data}
 \keyword{datasets}

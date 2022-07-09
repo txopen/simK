@@ -80,6 +80,7 @@ hla_sample <- function(n, replace, origin){
 #' @examples
 #' abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229))
 #' @export
+#' @concept clinical_parameters
 abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229)){
 
   if(!is.numeric(n) | n < 1){stop("`n` must be a single number!")}

@@ -28,4 +28,5 @@ hla
 \description{
 A dataset containing HLA typing from 37993 unrelated voluntary bone marrow donors from Nothern Portugal, recruited between 2010 and 2011.
 }
+\concept{data}
 \keyword{datasets}

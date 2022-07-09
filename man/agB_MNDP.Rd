@@ -13,4 +13,5 @@ agB_MNDP
 \description{
 A character vector with  HLA-B locus antigens, obtained from \code{MNDPhaps} dataset.
 }
+\concept{data}
 \keyword{datasets}

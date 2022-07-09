@@ -13,4 +13,5 @@ agA_MNDP
 \description{
 A character vector with  HLA-A locus antigens, obtained from \code{MNDPhaps} dataset.
 }
+\concept{data}
 \keyword{datasets}

@@ -21,3 +21,4 @@ frequencies
 \examples{
 abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229))
 }
+\concept{clinical_parameters}

@@ -26,4 +26,5 @@ MNDPhaps
 \description{
 A dataset containing Frequencies of HLA-A, -B, -DR haplotypes estimated (Expectation Maximization) by race/ethnicity from a subset of donors in the NMDP registry.
 }
+\concept{data}
 \keyword{datasets}
