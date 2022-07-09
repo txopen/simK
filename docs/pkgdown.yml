@@ -3,8 +3,8 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   simk: simk.html
-last_built: 2022-02-22T21:54Z
+last_built: 2022-07-09T15:36Z
 urls:
-  reference: https://simk.netlify.app/reference
-  article: https://simk.netlify.app/articles
+  reference: https://txopen.github.io/simK/reference
+  article: https://txopen.github.io/simK/articles
 
