@@ -1,0 +1,40 @@
+Package: simK
+Title: Synthetic Data on Kidney Transplantation 
+Version: 0.1.2
+Authors@R: 
+    person("Bruno", "Lima", , "balima78@gmauil.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9090-4457"))
+Description: Functions to generate simulated data for cadaveric donors and kidney transplant candidates. 
+    Includes HLA typing data previously puiblished [Lima et al, 2013]<ref: https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true>.
+    Particularly useful to generate datasets to run in [KARS](https://balima.shinyapps.io/kars/).  
+License: CC BY 4.0
+URL: https://github.com/balima78/simK, https://txor.netlify.app/
+BugReports: https://github.com/balima78/simK/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Depends: 
+    R (>= 3.10)
+LazyData: true
+Suggests:
+    knitr,
+    testthat (>= 3.0.0)
+Imports:
+    data.table,
+    dplyr,
+    extraDistr,
+    magrittr,
+    purrr,
+    stats,
+    transplantr,
+    truncnorm,
+    tidyr
+Config/testthat/edition: 3
+Collate:
+    'clinical.R'
+    'demographic.R'
+    'sim_df.R'
+    'data.R'
+    'simK.R'
+    'histo.R'
+VignetteBuilder: knitr

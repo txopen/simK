@@ -1,0 +1,108 @@
+---
+title: "Introduction to simK"
+description: >
+  Learn how to get started with the basics of simK.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to simK}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Main functions
+
+This package has 3 main functions, with them we can generate simulated data for a pool of donors, a set of kidney transplant candidates and the respective HLA-antibodies for those patients HLA sensitized.
+
+```{r setup}
+library(simK)
+```
+
+### Donors 
+
+A data frame with information for a pool of simulated donors can be generated with the function `donors_df()`:
+
+```{r, message=F, warning=FALSE}
+donors_df(n = 10,
+          replace = TRUE,
+          origin = 'PT',
+          probs = c(0.4658, 0.0343, 0.077, 0.4229),
+          lower = 18, upper = 75, mean = 55, sd = 15,
+          uk = FALSE,
+          n_seed = 3)
+```
+
+For a given number of rows `n`, a data frame is generated with columns: 
+
+  + *ID* unique identifier with the prefix 'D'; 
+  + *bg* with the blood group generated from the parameter `probs` a vector with the probabilities for groups A, AB, B and O, respectively; 
+  + *A1*, *A2*, *B1*, *B2*, *DR1*, *DR2* HLA typing obtained according to `origin` option (with `replace = TRUE` we can generate a data frame without limitations on the number of rows);
+  + *age* generated from a Normal distribution with `mean` and `sd` given by the user, values truncated by `lower` and `upper` boundaries;
+  + *DRI* when option `uk = TRUE`, Donor Risk Index is copmputed as described by [transplantr](https://transplantr.txtools.net/articles/kidney_risk_scores.html) 
+  
+HLA population `origin` has currently as valid options 'PT' for Portuguese, and populations available from [US National Marrow Donor Program](https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/):
+
+  + 'API' - Asian / Pacific Islander
+  + 'AFA' - African American / Black
+  + 'CAU' - White / Caucasian
+  + 'HIS' - Hispanic
+  
+Defining `n_seed` allows for reproducibility.
+
+:information_source: to compute *DRI* as decribed on `{transplantr}`, we generated variables: *height* ($N(165,20)$); *hypertension* (with probability $0.43$); *sex* (with probability $0.55$ for man); *CMV+* (with probability $0.9$); hospital stay ($P(\lambda = 4)$); and [*GFR* by *age*](https://www.kidney.org/atoz/content/gfr) (<30 $N(116,10)$; 30-39 $N(107,10)$; 40-49 $N(99,10)$; 50-59 $N(93,10)$; 60-69 $N(85, 10)$; >=70  $N(75, 10)$) 
+
+### Candidates
+
+A simulated waiting list for kidney transplant candidates, can be generated with `candidates_df()`:
+
+```{r}
+candidates_df(n = 10,
+              replace = TRUE,
+              origin = 'PT',
+              probs_abo = c(0.43, 0.03, 0.08, 0.46),
+              probs_cpra = c(0.7, 0.1, 0.1, 0.1),
+              lower = 18, upper = 75, mean = 45, sd = 15,
+              prob_dm = 0.12,
+              uk = TRUE,
+              n_seed = 3)
+```
+
+For a given number of `n` rows, a data frame is generated with columns: 
+
+  + *ID* unique identifier with the prefix 'K'; 
+  + *bg* with the blood group generated from the parameter `probs_abo` a vector with the probabilities for groups A, AB, B and O, respectively (here by default, we assumed group O patients are more frequent); 
+  + *A1*, *A2*, *B1*, *B2*, *DR1*, *DR2* HLA typing obtained according to `origin` option (with `replace = TRUE` we can generate a data frame without limitations on the number of rows);
+  + *age* generated from a Normal distribution with `mean` and `sd` given by the user, values truncated by `lower` and `upper` boundaries;
+  + *dialysis* time on dialysis **in months**, values computed according to patients' blood group and hypersensitation status (cPRA > 85%): for patients with blood group O **and** Hypersinsitized time on dialysis obtained from N(85, 20); for those patients blood O **or** Hypersinsitized $N(70,20)$; remaining patients have time on dialysis obtained from $N(35,20)$;
+  + *cPRA* patients are classified in groups with probabilities given by `probs_cpra` for 0%, 1%-50%, 51%-85% and 86%-100%, respectively. Within the groups > 0%, cPRA are computed as random values from distributions $P(\lambda = 30)$, $P(\lambda = 70)$ and $P(\lambda = 90)$;
+  + *Tier* patients are classified in two Tiers as described on [POL186/11 – Kidney Transplantation: Deceased Donor Organ Allocation](https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/22127/pol186.pdf) from UK transplant. In Tier A are patients with MS = 10 or cPRA = 100% or time on dialysis > 7 years, all remaing patients are classified as Tier B;
+  + *MS* matchabilily score are the deciles obtained from the number of donors on dataset `D10K` that are a match to each transplant candidate. [This score takes into account a patient’s blood type, HLA type and cPRA value. A patient with a MS = 1 is defined as easy to match and a MS = 10 as difficult to match.](https://www.odt.nhs.uk/odt-structures-and-standards/odt-hub-programme/kidney-offering-scheme/#:~:text=blood%20group%20match-,Key%20terms,10%20as%20difficult%20to%20match)
+  + *RRI* when option `uk = TRUE`, Recipient Risk Index is copmputed as described by [transplantr](https://transplantr.txtools.net/articles/kidney_risk_scores.html). To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from `prob_dm`) are used. Also, we assumed all patients were on dialysis at time of listing.
+  
+HLA population `origin` can be defined from options: 'PT','API','AFA','CAU' and 'HIS', as reported for `donors_df()` data frame. 
+  
+Defining `n_seed` allows for reproducibility.
+
+### HLA antibodies
+
+the function `Abs_df()` allows to generate a data frame with HLA antibodies from a candidates waiting list:
+
+```{r}
+Abs_df(candidates = candidates_df(n=10),
+       origin = 'PT',
+       n_seed = 3)
+```
+
+as inputs, this function requires a data set with an *ID* and patients HLA information (HLA typing and cPRA value) with the same format as provided  by `candidates_df()`. Defining `n_seed` allows for reproducibility.
+
+HLA population `origin` must be defined in accordance with functions `candidates_df()`. 
+
+> For PT origin, all these functions rely on HLA typing at intermediate resolution as described at [Lima *et al*, 2013](https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true).
+
+> For NMDP populations, HLA typing were described by [Gragert *et al*, 2013](https://reader.elsevier.com/reader/sd/pii/S0198885913001821?token=885F05F0FAD857548C932A5CC40B6962CD7A9FC589A73FC6DECE56D6E4E247587E06D755C16D9F2EA425111289B5DC2F&originRegion=eu-west-1&originCreation=20220222173605)
