@@ -17,6 +17,7 @@
 #' }
 #' @source \url{https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true}
 #' @concept data
+#' @noRd
 "hla"
 
 
@@ -39,6 +40,7 @@
 #' }
 #' @source \url{https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true}
 #' @concept data
+#' @noRd
 "D10K"
 
 
@@ -48,6 +50,7 @@
 #'
 #' @format A character vector with length 20.
 #' @concept data
+#' @noRd
 "agA"
 
 #' A vector with HLA-B.
@@ -56,6 +59,7 @@
 #'
 #' @format A character vector with length 34.
 #' @concept data
+#' @noRd
 "agB"
 
 #' A vector with HLA-DR.
@@ -64,6 +68,7 @@
 #'
 #' @format A character vector with length 13.
 #' @concept data
+#' @noRd
 "agDR"
 
 
@@ -84,6 +89,7 @@
 #' }
 #' @source \url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}
 #' @concept data
+#' @noRd
 "MNDPhaps"
 
 #' A vector with HLA-A from MNDP.
@@ -92,6 +98,7 @@
 #'
 #' @format A character vector with length 21.
 #' @concept data
+#' @noRd
 "agA_MNDP"
 
 #' A vector with HLA-B from MNDP.
@@ -100,6 +107,7 @@
 #'
 #' @format A character vector with length 41.
 #' @concept data
+#' @noRd
 "agB_MNDP"
 
 #' A vector with HLA-DR from MNDP.
@@ -108,6 +116,7 @@
 #'
 #' @format A character vector with length 13.
 #' @concept data
+#' @noRd
 "agDR_MNDP"
 
 #' A pool of 10.0000 donors API.
@@ -129,6 +138,7 @@
 #' }
 #' @source \url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}
 #' @concept data
+#' @noRd
 "D10K_API"
 
 #' A pool of 10.0000 donors AFA.
@@ -150,6 +160,7 @@
 #' }
 #' @source \url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}
 #' @concept data
+#' @noRd
 "D10K_AFA"
 
 #' A pool of 10.0000 donors CAU.
@@ -171,6 +182,7 @@
 #' }
 #' @source \url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}
 #' @concept data
+#' @noRd
 "D10K_CAU"
 
 #' A pool of 10.0000 donors HIS.
@@ -192,4 +204,5 @@
 #' }
 #' @source \url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}
 #' @concept data
+#' @noRd
 "D10K_HIS"
