@@ -25,10 +25,46 @@
     <loc>https://txopen.github.io/simK/reference/Abs_df.html</loc>
   </url>
   <url>
+    <loc>https://txopen.github.io/simK/reference/D10K.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/D10K_AFA.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/D10K_API.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/D10K_CAU.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/D10K_HIS.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/MNDPhaps.html</loc>
+  </url>
+  <url>
     <loc>https://txopen.github.io/simK/reference/aGFR.html</loc>
   </url>
   <url>
     <loc>https://txopen.github.io/simK/reference/abo.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agA.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agA_MNDP.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agB.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agB_MNDP.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agDR.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/agDR_MNDP.html</loc>
   </url>
   <url>
     <loc>https://txopen.github.io/simK/reference/ages.html</loc>
@@ -49,6 +85,9 @@
     <loc>https://txopen.github.io/simK/reference/donors_df.html</loc>
   </url>
   <url>
+    <loc>https://txopen.github.io/simK/reference/hla.html</loc>
+  </url>
+  <url>
     <loc>https://txopen.github.io/simK/reference/hla_sample.html</loc>
   </url>
   <url>
@@ -62,6 +101,9 @@
   </url>
   <url>
     <loc>https://txopen.github.io/simK/reference/mmHLA.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/simK/reference/pipe.html</loc>
   </url>
   <url>
     <loc>https://txopen.github.io/simK/reference/simK.html</loc>

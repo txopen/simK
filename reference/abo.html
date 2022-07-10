@@ -57,7 +57,7 @@ frequencies</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">abo</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">abo</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span>, seed.number <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,6 +69,10 @@ frequencies</p>
 <dt>probs</dt>
 <dd><p>A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.</p></dd>
 
+
+<dt>seed.number</dt>
+<dd><p>Seed for pseudo random number generator.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -79,14 +83,14 @@ frequencies</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">abo</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "O"  "O"  "A"  "A"  "O"  "O"  "O"  "O"  "O"  "O"  "O"  "O"  "A"  "O"  "B" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "A"  "A"  "A"  "A"  "A"  "A"  "O"  "O"  "B"  "O"  "O"  "A"  "A"  "A"  "A" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "A"  "A"  "B"  "A"  "O"  "A"  "A"  "O"  "A"  "O"  "A"  "A"  "A"  "A"  "A" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "O"  "A"  "A"  "O"  "AB" "O"  "B"  "O"  "A"  "A"  "A"  "O"  "A"  "O"  "A" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "O"  "A"  "O"  "O"  "A"  "A"  "O"  "O"  "B"  "AB" "O"  "O"  "A"  "A"  "O" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "O"  "O"  "O"  "A"  "A"  "B"  "O"  "A"  "O"  "O"  "B"  "A"  "A"  "A"  "O" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "O"  "A"  "A"  "A"  "A"  "O"  "O"  "O"  "A"  "O" </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">abo</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span>, seed.number <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "A"  "O"  "A"  "O"  "B"  "A"  "O"  "B"  "O"  "A"  "B"  "A"  "O"  "O"  "A" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "B"  "A"  "A"  "A"  "B"  "B"  "O"  "O"  "AB" "O"  "O"  "O"  "O"  "A"  "A" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "B"  "B"  "O"  "O"  "A"  "O"  "O"  "A"  "A"  "A"  "A"  "A"  "A"  "A"  "A" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "A"  "A"  "O"  "A"  "O"  "A"  "A"  "O"  "A"  "O"  "A"  "A"  "O"  "B"  "A" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "O"  "A"  "A"  "A"  "O"  "A"  "O"  "O"  "O"  "A"  "O"  "O"  "O"  "A"  "O" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "A"  "A"  "O"  "A"  "A"  "A"  "O"  "A"  "O"  "A"  "A"  "AB" "B"  "O"  "A" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "A"  "O"  "A"  "O"  "A"  "A"  "O"  "A"  "O"  "O" </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
