@@ -4,12 +4,14 @@
 \alias{dial}
 \title{Gives time on dialysis in months}
 \usage{
-dial(hiper = TRUE, bg = "O")
+dial(hiper = TRUE, bg = "O", seed.number = 123)
 }
 \arguments{
 \item{hiper}{A logical value for hipersensitized patients (cPRA > 85\%).}
 
 \item{bg}{A character value for blood group.}
+
+\item{seed.number}{Seed for pseudo random number generator.}
 }
 \value{
 A value from a normal distribution.
@@ -18,6 +20,6 @@ A value from a normal distribution.
 Returns a value for time on dialysis in months by blood group and cPRA.
 }
 \examples{
-dial(hiper = TRUE, bg = 'O')
+dial(hiper = TRUE, bg = 'O', seed.number = 123)
 }
 \concept{clinical_parameters}

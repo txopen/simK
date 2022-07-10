@@ -4,7 +4,7 @@
 \alias{ages}
 \title{Builds a vector with truncated ages}
 \usage{
-ages(n = 100, lower = 18, upper = 75, mean = 55, sd = 15)
+ages(n = 100, lower = 18, upper = 75, mean = 55, sd = 15, seed.number = 123)
 }
 \arguments{
 \item{n}{An integer to define the length of the returned vector.}
@@ -16,6 +16,8 @@ ages(n = 100, lower = 18, upper = 75, mean = 55, sd = 15)
 \item{mean}{A value for mean's distribution.}
 
 \item{sd}{A value for standar deviation's distribution.}
+
+\item{seed.number}{Seed for pseudo random number generator.}
 }
 \value{
 A vector length \code{n} with normal distributed truncated ages.
@@ -25,6 +27,6 @@ Returns a vector with ages with a normal distribution truncated
 by upper and upper limits.
 }
 \examples{
-ages(n = 100, lower=18, upper=75, mean = 55, sd = 15)
+ages(n = 100, lower=18, upper=75, mean = 55, sd = 15, seed.number = 123)
 }
 \concept{demographic_parameters}

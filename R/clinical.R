@@ -43,7 +43,7 @@ hla_sample_mndp <- function(n, replace, origin){
 #' @concept clinical_parameters
 hla_sample <- function(n, replace, origin){
 
-  require("magrittr", quietly = TRUE)
+  #require("magrittr", quietly = TRUE)
 
   if(!is.numeric(n)){stop("`n` must be a single number!")}
   if(!is.logical(replace)){stop("`replace` must be logical (TRUE or FALSE)")}
@@ -63,7 +63,7 @@ hla_sample <- function(n, replace, origin){
     df2 <- df %>%
       dplyr::slice((n+1):(2*n)) %>%
       dplyr::rename(A2 = A, B2 = B, DR2 = DR)
-    df <- bind_cols(df1, df2) %>%
+    df <- dplyr::bind_cols(df1, df2) %>%
       dplyr::select(A1, A2, B1, B2, DR1, DR2)
     }
 
@@ -76,17 +76,22 @@ hla_sample <- function(n, replace, origin){
 #' frequencies
 #' @param n An integer to define the length of the returned vector
 #' @param probs A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.
+#' @param seed.number Seed for pseudo random number generator.
 #' @return A vector length `n` with ABO blood groups
 #' @examples
-#' abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229))
+#' abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number = 123)
 #' @export
 #' @concept clinical_parameters
-abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229)){
+abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number = 123){
 
-  if(!is.numeric(n) | n < 1){stop("`n` must be a single number!")}
+  if(!is.numeric(n) | n < 1){stop("`n` must be a positive number!")}
   if(round(sum(probs)) != 1){stop("`probs` do not sum 1!")}
+  if(!is.numeric(n) | n < 1){stop("`seed.number` must be a positive number!")}
 
   abo <- c('A','AB','B','O')
+
+  set.seed(seed.number)
+
   sample(x=abo, size = n, replace = TRUE, prob = probs)
 
 }
@@ -96,13 +101,16 @@ abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229)){
 #' @description Returns a value for the Estimated Glomerular Filtration Rate
 #' (eGFR) by age as described by https://www.kidney.org/atoz/content/gfr.
 #' @param age An integer for age (values between 1 and 99).
+#' @param seed.number Seed for pseudo random number generator.
 #' @return A value from a normal distribution.
 #' @examples
-#' aGFR(age = 43)
+#' aGFR(age = 43, seed.number = 123)
 #' @export
 #' @concept clinical_parameters
-aGFR <- function(age = 43){
+aGFR <- function(age = 43, seed.number = 123){
   if(!is.numeric(age) | age < 1 | age > 99){stop("`age` must be between 1 and 99!")}
+
+  set.seed(seed.number)
 
   res <- ifelse(age < 30, truncnorm::rtruncnorm(n = 1, a=106, b=122, mean = 116, sd = 10),
                 ifelse(age < 40, truncnorm::rtruncnorm(n = 1, a=97, b=117, mean = 107, sd = 10),
@@ -121,12 +129,13 @@ aGFR <- function(age = 43){
 #' defined frequencies
 #' @param n An integer to define the length of the returned vector
 #' @param probs A vector with the probabilities for cPRA groups 0%, 1%-50%, 51%-84%, 85%-100% (in this order). The sum of the probabilities must be equal to one.
+#' @param seed.number Seed for pseudo random number generator.
 #' @return A vector length `n` with cPRA percentages
 #' @examples
-#' cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1))
+#' cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123)
 #' @export
 #' @concept clinical_parameters
-cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1)){
+cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123){
 
   if(!is.numeric(n) | n < 1){stop("`n` must be a single number!")}
   if(round(sum(probs)) != 1){stop("`probs` do not sum 1!")}
@@ -136,6 +145,8 @@ cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1)){
   n3 <- round(n*probs[3])
   n2 <- round(n*probs[2])
   n1 <- n - (n2+n3+n4)
+
+  set.seed(seed.number)
 
   v1 <- rep(0,n1)
   v2 <- extraDistr::rtpois(n = n2, lambda = 30, a = 1, b = 50)
@@ -152,14 +163,18 @@ cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1)){
 #' @description Returns a value for time on dialysis in months by blood group and cPRA.
 #' @param hiper A logical value for hipersensitized patients (cPRA > 85%).
 #' @param bg A character value for blood group.
+#' @param seed.number Seed for pseudo random number generator.
 #' @return A value from a normal distribution.
 #' @examples
-#' dial(hiper = TRUE, bg = 'O')
+#' dial(hiper = TRUE, bg = 'O', seed.number = 123)
 #' @export
 #' @concept clinical_parameters
-dial <- function(hiper = TRUE, bg = 'O'){
+dial <- function(hiper = TRUE, bg = 'O', seed.number = 123){
+
   if(!bg %in% c('A','AB','B','O')){stop("`bg` is not valid! valid blood group: 'A','AB','B','O'")}
   if(!is.logical(hiper)){stop("`hiper` must be a logical value!")}
+
+  set.seed(seed.number)
 
   dial1 <- round(rnorm(1, 35,20))
 

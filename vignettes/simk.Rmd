@@ -35,7 +35,7 @@ donors_df(n = 10,
           probs = c(0.4658, 0.0343, 0.077, 0.4229),
           lower = 18, upper = 75, mean = 55, sd = 15,
           uk = FALSE,
-          n_seed = 3)
+          seed.number = 3)
 ```
 
 For a given number of rows `n`, a data frame is generated with columns: 
@@ -53,7 +53,7 @@ HLA population `origin` has currently as valid options 'PT' for Portuguese, and 
   + 'CAU' - White / Caucasian
   + 'HIS' - Hispanic
   
-Defining `n_seed` allows for reproducibility.
+Defining `seed.number` allows for reproducibility.
 
 :information_source: to compute *DRI* as decribed on `{transplantr}`, we generated variables: *height* ($N(165,20)$); *hypertension* (with probability $0.43$); *sex* (with probability $0.55$ for man); *CMV+* (with probability $0.9$); hospital stay ($P(\lambda = 4)$); and [*GFR* by *age*](https://www.kidney.org/atoz/content/gfr) (<30 $N(116,10)$; 30-39 $N(107,10)$; 40-49 $N(99,10)$; 50-59 $N(93,10)$; 60-69 $N(85, 10)$; >=70  $N(75, 10)$) 
 
@@ -70,7 +70,7 @@ candidates_df(n = 10,
               lower = 18, upper = 75, mean = 45, sd = 15,
               prob_dm = 0.12,
               uk = TRUE,
-              n_seed = 3)
+              seed.number = 3)
 ```
 
 For a given number of `n` rows, a data frame is generated with columns: 
@@ -87,7 +87,7 @@ For a given number of `n` rows, a data frame is generated with columns:
   
 HLA population `origin` can be defined from options: 'PT','API','AFA','CAU' and 'HIS', as reported for `donors_df()` data frame. 
   
-Defining `n_seed` allows for reproducibility.
+Defining `seed.number` allows for reproducibility.
 
 ### HLA antibodies
 
@@ -96,10 +96,10 @@ the function `Abs_df()` allows to generate a data frame with HLA antibodies from
 ```{r}
 Abs_df(candidates = candidates_df(n=10),
        origin = 'PT',
-       n_seed = 3)
+       seed.number = 3)
 ```
 
-as inputs, this function requires a data set with an *ID* and patients HLA information (HLA typing and cPRA value) with the same format as provided  by `candidates_df()`. Defining `n_seed` allows for reproducibility.
+as inputs, this function requires a data set with an *ID* and patients HLA information (HLA typing and cPRA value) with the same format as provided  by `candidates_df()`. Defining `seed.number` allows for reproducibility.
 
 HLA population `origin` must be defined in accordance with functions `candidates_df()`. 
 

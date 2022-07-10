@@ -66,22 +66,22 @@ mmHLA <- function(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
 #' @param cA candidate's HLA-A typing
 #' @param cB candidate's HLA-B typing
 #' @param cDR candidate's HLA-DR typing
-#' @param n_seed a numeric seed that will be used for random number generation.
+#' @param seed.number a numeric seed that will be used for random number generation.
 #' @return Match Score measure of how difficult it is to match a patient with a organ donor. A score from 1 (easy to match) to 10 (difficult to match).
 #' @examples
 #' matchability(cABO = 'A', cPRA = 85,
 #' cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-#' n_seed = 3)
+#' seed.number = 3)
 #' @export
 #' @concept histocompatibility
 matchability <- function(cABO = 'A', cPRA = 85,
                          cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-                         n_seed = 3){
+                         seed.number = 3){
   if(!cABO %in% c('A','AB','B','O')){stop("Blood group is not valid! Valid options: 'A','AB','B','O'")}
 
-  require('magrittr', quietly = TRUE)
+  #require('magrittr', quietly = TRUE)
 
-  set.seed(n_seed)
+  set.seed(seed.number)
 
   n1 <- (100-cPRA)*100
 
@@ -113,7 +113,7 @@ matchability <- function(cABO = 'A', cPRA = 85,
 #' @concept histocompatibility
 vpra <- function(abs = c('A1','A2','B5','DR4'), donors = D10K){
 
-  require("magrittr", quietly = TRUE)
+  #require("magrittr", quietly = TRUE)
 
   n <- nrow(donors)
 
@@ -141,18 +141,18 @@ vpra <- function(abs = c('A1','A2','B5','DR4'), donors = D10K){
 #' @param cDR candidate's HLA-DR typing
 #' @param cPRA candidate's cPRA value
 #' @param origin A character value from options: 'API', 'AFA', 'CAU' and 'HIS'
-#' @param n_seed a numeric seed that will be used for random number generation.
+#' @param seed.number a numeric seed that will be used for random number generation.
 #' @return a character vector with HLA abs.
 #' @examples
 #' antbs(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-#' cPRA = 85, origin = 'PT', n_seed = 3)
+#' cPRA = 85, origin = 'PT', seed.number = 3)
 #' @export
 #' @concept histocompatibility
 antbs <- function(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
                 cPRA = 85,
-                origin = 'PT', n_seed = 3){
+                origin = 'PT', seed.number = 3){
 
-  set.seed(n_seed)
+  set.seed(seed.number)
 
   typing <- c(paste0('A',cA), paste0('B',cB), paste0('DR',cDR))
 

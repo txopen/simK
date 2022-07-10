@@ -14,12 +14,12 @@ knitr::opts_chunk$set(
 
 # simK <img src="man/figures/logo.png" height="150" align="right"/>
 
-[![Project Status: Active – The project has reached a st
-able, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- badges: start -->
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/txopen/histoc/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/histoc/actions)
+<!-- badges: end -->
 
 **License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the author. :sunglasses:
-
-
 
 :dart: Functions to procedurally generate synthetic data in R for kidney transplant simulations. You can see `simK` in action, [here](https://simk.netlify.app/).
 

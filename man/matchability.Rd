@@ -10,7 +10,7 @@ matchability(
   cA = c("2", "29"),
   cB = c("7", "15"),
   cDR = c("4", "7"),
-  n_seed = 3
+  seed.number = 3
 )
 }
 \arguments{
@@ -24,7 +24,7 @@ matchability(
 
 \item{cDR}{candidate's HLA-DR typing}
 
-\item{n_seed}{a numeric seed that will be used for random number generation.}
+\item{seed.number}{a numeric seed that will be used for random number generation.}
 }
 \value{
 Match Score measure of how difficult it is to match a patient with a organ donor. A score from 1 (easy to match) to 10 (difficult to match).
@@ -38,6 +38,6 @@ cPRA value, and donors ABO identical and HLA mismatch level 1 or 2
 \examples{
 matchability(cABO = 'A', cPRA = 85,
 cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-n_seed = 3)
+seed.number = 3)
 }
 \concept{histocompatibility}

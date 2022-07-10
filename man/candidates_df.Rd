@@ -16,7 +16,7 @@ candidates_df(
   sd = 15,
   prob_dm = 0.12,
   uk = FALSE,
-  n_seed = 3
+  seed.number = 3
 )
 }
 \arguments{
@@ -42,7 +42,7 @@ candidates_df(
 
 \item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI)}
 
-\item{n_seed}{a numeric seed that will be used for random number generation.}
+\item{seed.number}{a numeric seed that will be used for random number generation.}
 }
 \value{
 A data frame with HLA typing, blood group, truncated ages, time on dialysis (in months), cPRA, Tier, MS and RRI (those last 3, only when uk = TRUE) for a simulated group of transplant candidates.
@@ -56,6 +56,6 @@ candidates_df(n = 10, replace = TRUE, origin = 'PT',
 probs_abo = c(0.43, 0.03, 0.08, 0.46), probs_cpra = c(0.7, 0.1, 0.1, 0.1),
 lower=18, upper=75, mean = 45, sd = 15,
 prob_dm = 0.12,
-uk = FALSE, n_seed = 3)
+uk = FALSE, seed.number = 3)
 }
 \concept{generate_data}

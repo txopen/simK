@@ -10,7 +10,7 @@ antbs(
   cDR = c("4", "7"),
   cPRA = 85,
   origin = "PT",
-  n_seed = 3
+  seed.number = 3
 )
 }
 \arguments{
@@ -24,7 +24,7 @@ antbs(
 
 \item{origin}{A character value from options: 'API', 'AFA', 'CAU' and 'HIS'}
 
-\item{n_seed}{a numeric seed that will be used for random number generation.}
+\item{seed.number}{a numeric seed that will be used for random number generation.}
 }
 \value{
 a character vector with HLA abs.
@@ -35,6 +35,6 @@ according with a cPRA value.
 }
 \examples{
 antbs(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-cPRA = 85, origin = 'PT', n_seed = 3)
+cPRA = 85, origin = 'PT', seed.number = 3)
 }
 \concept{histocompatibility}

@@ -4,12 +4,14 @@
 \alias{cpra}
 \title{Builds a vector with cPRA (percentage)}
 \usage{
-cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1))
+cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123)
 }
 \arguments{
 \item{n}{An integer to define the length of the returned vector}
 
 \item{probs}{A vector with the probabilities for cPRA groups 0\%, 1\%-50\%, 51\%-84\%, 85\%-100\% (in this order). The sum of the probabilities must be equal to one.}
+
+\item{seed.number}{Seed for pseudo random number generator.}
 }
 \value{
 A vector length \code{n} with cPRA percentages
@@ -19,6 +21,6 @@ Returns a vector with cPRA percentages according to user
 defined frequencies
 }
 \examples{
-cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1))
+cpra(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123)
 }
 \concept{clinical_parameters}

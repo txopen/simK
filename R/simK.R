@@ -5,6 +5,7 @@
 #' @section simK functions:
 #' The \code{simK} main functions: \code{candidates.df()}, \code{donors.df()}, \code{abs.df()}
 #'
+#' @importFrom stats rnorm rpois
 #' @docType package
 #' @name simK
 NULL

@@ -28,13 +28,7 @@ Imports:
     stats,
     transplantr,
     truncnorm,
-    tidyr
+    tidyr,
+    tidyselect
 Config/testthat/edition: 3
-Collate:
-    'clinical.R'
-    'demographic.R'
-    'sim_df.R'
-    'data.R'
-    'simK.R'
-    'histo.R'
 VignetteBuilder: knitr

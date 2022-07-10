@@ -4,12 +4,14 @@
 \alias{abo}
 \title{Builds a vector with ABO blood group}
 \usage{
-abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229))
+abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number = 123)
 }
 \arguments{
 \item{n}{An integer to define the length of the returned vector}
 
 \item{probs}{A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.}
+
+\item{seed.number}{Seed for pseudo random number generator.}
 }
 \value{
 A vector length \code{n} with ABO blood groups
@@ -19,6 +21,6 @@ Returns a vector with ABO blood groups according to user defined
 frequencies
 }
 \examples{
-abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229))
+abo(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number = 123)
 }
 \concept{clinical_parameters}

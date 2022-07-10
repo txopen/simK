@@ -4,10 +4,12 @@
 \alias{aGFR}
 \title{Gives a eGFR by age}
 \usage{
-aGFR(age = 43)
+aGFR(age = 43, seed.number = 123)
 }
 \arguments{
 \item{age}{An integer for age (values between 1 and 99).}
+
+\item{seed.number}{Seed for pseudo random number generator.}
 }
 \value{
 A value from a normal distribution.
@@ -17,6 +19,6 @@ Returns a value for the Estimated Glomerular Filtration Rate
 (eGFR) by age as described by https://www.kidney.org/atoz/content/gfr.
 }
 \examples{
-aGFR(age = 43)
+aGFR(age = 43, seed.number = 123)
 }
 \concept{clinical_parameters}
