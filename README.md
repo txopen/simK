@@ -34,7 +34,7 @@ the latest features, together with all the latest bugs and errors. You
 have been warned :exclamation:
 
     # install from GitHub
-    devtools::install_github("balima78/simK")
+    devtools::install_github("txopen/simK")
 
 ## Main functions
 
@@ -43,7 +43,7 @@ data for a pool of donors, a set of kidney transplant candidates and the
 respective HLA-antibodies for those patients HLA sensitized.
 
 A detailed description of these functions usage, is available from
-[here](https://simk.netlify.app/articles/simk.html).
+[here](https://txopen.github.io/simK/articles/simk.html).
 
 :warning: For PT origin, all these functions rely on HLA typing at
 intermediate resolution as described at [Lima *et al*,

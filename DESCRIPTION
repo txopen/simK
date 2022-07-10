@@ -9,7 +9,7 @@ Description: Functions to generate simulated data for cadaveric donors and kidne
     Particularly useful to generate datasets to run in [KARS](https://balima.shinyapps.io/kars/).  
 License: CC BY 4.0
 URL: https://txopen.github.io/simK/
-BugReports: https://github.com/balima78/simK/issues
+BugReports: https://github.com/txopen/simK/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
