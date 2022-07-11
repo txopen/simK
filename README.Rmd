@@ -14,9 +14,17 @@ knitr::opts_chunk$set(
 
 # simK <img src="man/figures/logo.png" height="150" align="right"/>
 
+```{r}
+library(badger)
+```
+
 <!-- badges: start -->
+`r badge_devel("txopen/simK", "blue")`
+[![R-CMD-check](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![R-CMD-check](https://github.com/txopen/histoc/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/histoc/actions)
+`r badge_lifecycle("stable")`
+`r badge_github_actions("txopen/simK")`
+`r badge_license("CC-BY4", url = 'https://creativecommons.org/licenses/by/4.0/')`
 <!-- badges: end -->
 
 **License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the author. :sunglasses:

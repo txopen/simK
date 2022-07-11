@@ -63,7 +63,7 @@ according with a cPRA value.</p>
   cDR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"4"</span>, <span class="st">"7"</span><span class="op">)</span>,
   cPRA <span class="op">=</span> <span class="fl">85</span>,
   origin <span class="op">=</span> <span class="st">"PT"</span>,
-  n_seed <span class="op">=</span> <span class="fl">3</span>
+  seed.number <span class="op">=</span> <span class="fl">3</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -79,7 +79,7 @@ according with a cPRA value.</p>
 <dd><p>candidate's cPRA value</p></dd>
 <dt>origin</dt>
 <dd><p>A character value from options: 'API', 'AFA', 'CAU' and 'HIS'</p></dd>
-<dt>n_seed</dt>
+<dt>seed.number</dt>
 <dd><p>a numeric seed that will be used for random number generation.</p></dd>
 </dl></div>
     <div class="section level2">
@@ -90,7 +90,7 @@ according with a cPRA value.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">antbs</span><span class="op">(</span>cA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'2'</span>,<span class="st">'29'</span><span class="op">)</span>, cB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'7'</span>,<span class="st">'15'</span><span class="op">)</span>, cDR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'4'</span>,<span class="st">'7'</span><span class="op">)</span>,</span>
-<span class="r-in">cPRA <span class="op">=</span> <span class="fl">85</span>, origin <span class="op">=</span> <span class="st">'PT'</span>, n_seed <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span class="r-in">cPRA <span class="op">=</span> <span class="fl">85</span>, origin <span class="op">=</span> <span class="st">'PT'</span>, seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $cPRA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 85</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -121,7 +121,7 @@ according with a cPRA value.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bruno Lima.</p>
+  <p></p><p>Developed by Bruno Lima, RStudio.</p>
 </div>
 
 <div class="pkgdown-footer-right">

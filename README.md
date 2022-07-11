@@ -3,9 +3,23 @@
 
 # simK <img src="man/figures/logo.png" height="150" align="right"/>
 
-[![Project Status: Active – The project has reached a st able, usable
+``` r
+library(badger)
+```
+
+<!-- badges: start -->
+
+[![](https://img.shields.io/badge/devel%20version-0.1.2-blue.svg)](https://github.com/txopen/simK)
+[![R-CMD-check](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
+[![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R build
+status](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
+[![License:
+CC-BY4](https://img.shields.io/badge/license-CC--BY4-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+<!-- badges: end -->
 
 **License**: Creative Commons Attribution
 [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to

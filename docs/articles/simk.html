@@ -103,20 +103,20 @@
           probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span>,
           lower <span class="op">=</span> <span class="fl">18</span>, upper <span class="op">=</span> <span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">55</span>, sd <span class="op">=</span> <span class="fl">15</span>,
           uk <span class="op">=</span> <span class="cn">FALSE</span>,
-          n_seed <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+          seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 x 9</span></span>
 <span class="co">#&gt;    ID    bg       A1    A2    B1    B2   DR1   DR2   age</span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    B         1    29     8    44    11     7    30</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    A         2     3     7    57     4     8    48</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    O        11    33    14    35     1    13    44</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    A        24    30    49    58    11    11    72</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    A         2     3     7    51     1    13    70</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    O        30    68    15    18     3     4    54</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    A         3    26    18    40    11    13    38</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    O         1     1     7     8     3    13    69</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    A         3     3     7    44    15     8    68</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A        11    29    44    57     7     7    66</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A         1    29     8    44    11     7    47</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O         2     3     7    57     4     8    52</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A        11    33    14    35     1    13    56</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O        24    30    49    58    11    11    57</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B         2     3     7    51     1    13    62</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A        30    68    15    18     3     4    36</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O         3    26    18    40    11    13    45</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B         1     1     7     8     3    13    48</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O         3     3     7    44    15     8    73</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A        11    29    44    57     7     7    60</span></code></pre></div>
 <p>For a given number of rows <code>n</code>, a data frame is generated with columns:</p>
 <ul>
 <li>
@@ -138,7 +138,7 @@
 <li>‘CAU’ - White / Caucasian</li>
 <li>‘HIS’ - Hispanic</li>
 </ul>
-<p>Defining <code>n_seed</code> allows for reproducibility.</p>
+<p>Defining <code>seed.number</code> allows for reproducibility.</p>
 <p>:information_source: to compute <em>DRI</em> as decribed on <a href="https://transplantr.txtools.net" class="external-link">transplantr</a>, we generated variables: <em>height</em> (<span class="math inline">\(N(165,20)\)</span>); <em>hypertension</em> (with probability <span class="math inline">\(0.43\)</span>); <em>sex</em> (with probability <span class="math inline">\(0.55\)</span> for man); <em>CMV+</em> (with probability <span class="math inline">\(0.9\)</span>); hospital stay (<span class="math inline">\(P(\lambda = 4)\)</span>); and <a href="https://www.kidney.org/atoz/content/gfr" class="external-link"><em>GFR</em> by <em>age</em></a> (&lt;30 <span class="math inline">\(N(116,10)\)</span>; 30-39 <span class="math inline">\(N(107,10)\)</span>; 40-49 <span class="math inline">\(N(99,10)\)</span>; 50-59 <span class="math inline">\(N(93,10)\)</span>; 60-69 <span class="math inline">\(N(85, 10)\)</span>; &gt;=70 <span class="math inline">\(N(75, 10)\)</span>)</p>
 </div>
 <div class="section level3">
@@ -154,20 +154,20 @@
               lower <span class="op">=</span> <span class="fl">18</span>, upper <span class="op">=</span> <span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">45</span>, sd <span class="op">=</span> <span class="fl">15</span>,
               prob_dm <span class="op">=</span> <span class="fl">0.12</span>,
               uk <span class="op">=</span> <span class="cn">TRUE</span>,
-              n_seed <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+              seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 x 14</span></span>
 <span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age dialysis  cPRA Tier </span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    A     1     29    8     44    11    7        36       49     0 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    O     2     3     7     57    4     8        21       22     0 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    A     11    33    14    35    1     13       26       55    21 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       37       98     0 A    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    O     2     3     7     51    1     13       47       89     0 A    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        25       22     0 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       56       79     0 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    A     1     1     7     8     3     13       72       81    90 A    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    O     3     3     7     44    15    8        47       65    60 B    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   O     11    29    44    57    7     7        30       42     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37       64     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42       16     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68       64     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46       64     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47       16    76 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71       16    25 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52       79    91 A    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26       64     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35       16     0 B    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38       16     0 B    </span>
 <span class="co">#&gt; <span style="color: #949494;"># ... with 2 more variables: MS &lt;int&gt;, RRI &lt;chr&gt;</span></span></code></pre></div>
 <p>For a given number of <code>n</code> rows, a data frame is generated with columns:</p>
 <ul>
@@ -192,7 +192,7 @@
 <em>RRI</em> when option <code>uk = TRUE</code>, Recipient Risk Index is copmputed as described by <a href="https://transplantr.txtools.net/articles/kidney_risk_scores.html" class="external-link">transplantr</a>. To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from <code>prob_dm</code>) are used. Also, we assumed all patients were on dialysis at time of listing.</li>
 </ul>
 <p>HLA population <code>origin</code> can be defined from options: ‘PT’,‘API’,‘AFA’,‘CAU’ and ‘HIS’, as reported for <code><a href="../reference/donors_df.html">donors_df()</a></code> data frame.</p>
-<p>Defining <code>n_seed</code> allows for reproducibility.</p>
+<p>Defining <code>seed.number</code> allows for reproducibility.</p>
 </div>
 <div class="section level3">
 <h3 id="hla-antibodies">HLA antibodies<a class="anchor" aria-label="anchor" href="#hla-antibodies"></a>
@@ -201,22 +201,22 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/Abs_df.html">Abs_df</a></span><span class="op">(</span>candidates <span class="op">=</span> <span class="fu"><a href="../reference/candidates_df.html">candidates_df</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">10</span><span class="op">)</span>,
        origin <span class="op">=</span> <span class="st">'PT'</span>,
-       n_seed <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 49 x 2</span></span>
+       seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 35 x 2</span></span>
 <span class="co">#&gt;    ID    abs  </span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K3    A25  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K3    DR4  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K8    A25  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K8    DR16 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K8    A33  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K8    B51  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K8    B48  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    DR16 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K8    B52  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K8    B55  </span>
-<span class="co">#&gt; <span style="color: #949494;"># ... with 39 more rows</span></span></code></pre></div>
-<p>as inputs, this function requires a data set with an <em>ID</em> and patients HLA information (HLA typing and cPRA value) with the same format as provided by <code><a href="../reference/candidates_df.html">candidates_df()</a></code>. Defining <code>n_seed</code> allows for reproducibility.</p>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K5    A25  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K5    DR4  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K5    A34  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K5    B53  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    B49  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K5    DR4  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K5    B54  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K5    B57  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K5    B44  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K5    A30  </span>
+<span class="co">#&gt; <span style="color: #949494;"># ... with 25 more rows</span></span></code></pre></div>
+<p>as inputs, this function requires a data set with an <em>ID</em> and patients HLA information (HLA typing and cPRA value) with the same format as provided by <code><a href="../reference/candidates_df.html">candidates_df()</a></code>. Defining <code>seed.number</code> allows for reproducibility.</p>
 <p>HLA population <code>origin</code> must be defined in accordance with functions <code><a href="../reference/candidates_df.html">candidates_df()</a></code>.</p>
 <blockquote>
 <p>For PT origin, all these functions rely on HLA typing at intermediate resolution as described at <a href="https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true" class="external-link">Lima <em>et al</em>, 2013</a>.</p>
@@ -234,7 +234,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Bruno Lima.</p>
+<p>Developed by Bruno Lima, RStudio.</p>
 </div>
 
 <div class="pkgdown-footer-right">

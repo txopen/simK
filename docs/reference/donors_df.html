@@ -67,7 +67,7 @@ demographic caracheristics.</p>
   mean <span class="op">=</span> <span class="fl">60</span>,
   sd <span class="op">=</span> <span class="fl">12</span>,
   uk <span class="op">=</span> <span class="cn">FALSE</span>,
-  n_seed <span class="op">=</span> <span class="fl">3</span>
+  seed.number <span class="op">=</span> <span class="fl">3</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -91,7 +91,7 @@ demographic caracheristics.</p>
 <dd><p>A value for standar deviation's distribution.</p></dd>
 <dt>uk</dt>
 <dd><p>A logical value, if TRUE is also computed the Donor Risk Index (DRI)</p></dd>
-<dt>n_seed</dt>
+<dt>seed.number</dt>
 <dd><p>a numeric seed that will be used for random number generation.</p></dd>
 </dl></div>
     <div class="section level2">
@@ -104,20 +104,20 @@ demographic caracheristics.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">donors_df</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, origin <span class="op">=</span> <span class="st">'PT'</span>,</span>
 <span class="r-in">probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span>,</span>
 <span class="r-in">lower<span class="op">=</span><span class="fl">18</span>, upper<span class="op">=</span><span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">55</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
-<span class="r-in">uk <span class="op">=</span> <span class="cn">FALSE</span>, n_seed <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span class="r-in">uk <span class="op">=</span> <span class="cn">FALSE</span>, seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 x 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ID    bg       A1    A2    B1    B2   DR1   DR2   age</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> D1    B         1    29     8    44    11     7    30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> D2    A         2     3     7    57     4     8    48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> D3    O        11    33    14    35     1    13    44</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> D4    A        24    30    49    58    11    11    72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> D5    A         2     3     7    51     1    13    70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> D6    O        30    68    15    18     3     4    54</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> D7    A         3    26    18    40    11    13    38</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> D8    O         1     1     7     8     3    13    69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> D9    A         3     3     7    44    15     8    68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> D10   A        11    29    44    57     7     7    66</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> D1    A         1    29     8    44    11     7    47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> D2    O         2     3     7    57     4     8    52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> D3    A        11    33    14    35     1    13    56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> D4    O        24    30    49    58    11    11    57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> D5    B         2     3     7    51     1    13    62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> D6    A        30    68    15    18     3     4    36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> D7    O         3    26    18    40    11    13    45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> D8    B         1     1     7     8     3    13    48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> D9    O         3     3     7    44    15     8    73</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> D10   A        11    29    44    57     7     7    60</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -125,7 +125,7 @@ demographic caracheristics.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bruno Lima.</p>
+  <p></p><p>Developed by Bruno Lima, RStudio.</p>
 </div>
 
 <div class="pkgdown-footer-right">
