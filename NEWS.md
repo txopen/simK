@@ -1,3 +1,7 @@
+# simK 0.1.3
+
+* added input `seed.number` to ensure reproducibility
+
 # simk 0.1.2
 
 * added `origin` options that allows simulate also HLA tipyng from MNDP 
