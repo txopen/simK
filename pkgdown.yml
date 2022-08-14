@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   simk: simk.html
-last_built: 2022-08-14T18:10Z
+last_built: 2022-08-14T18:57Z
 urls:
   reference: https://txopen.github.io/simK/reference
   article: https://txopen.github.io/simK/articles
