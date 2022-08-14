@@ -19,11 +19,12 @@ library(badger)
 ```
 
 <!-- badges: start -->
-`r badge_devel("txopen/simK", "blue")`
+`r badger::badge_devel("txopen/simK", "blue")`
 [![R-CMD-check](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-`r badge_lifecycle("stable")`
-`r badge_license("CC-BY4", url = 'https://creativecommons.org/licenses/by/4.0/')`
+`r badger::badge_lifecycle("experimental")`
+`r badger::badge_license("MIT")`
+[![Codecov test coverage](https://codecov.io/gh/txopen/simK/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/simK?branch=main)
 <!-- badges: end -->
 
 **License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the author. :sunglasses:
@@ -31,6 +32,8 @@ library(badger)
 :dart: Functions to procedurally generate synthetic data in R for kidney transplant simulations. You can see `simK` in action, [here](https://simk.netlify.app/).
 
 `simK` allows to generate data with clinical and demographic information for a pool of simulated cadaveric donors and simulated wait listed candidates for kidney transplantation.
+
+Synthetic data can be used for preliminary analysis and the development of analysis code.
 
 Data generated with `simK` are particularly useful on [KARS](https://balima.shinyapps.io/kars/).
 

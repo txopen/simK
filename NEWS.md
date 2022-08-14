@@ -1,3 +1,7 @@
+# simK 0.2.0
+
+* now depends on R > 4.1 and uses the native pipe
+
 # simK 0.1.3
 
 * added input `seed.number` to ensure reproducibility

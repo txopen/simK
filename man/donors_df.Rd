@@ -30,9 +30,9 @@ donors_df(
 
 \item{upper}{An integer for ages' upper limit.}
 
-\item{mean}{A value for mean's distribution.}
+\item{mean}{A value for mean on age's distribution.}
 
-\item{sd}{A value for standar deviation's distribution.}
+\item{sd}{A value for standard deviation on age's distribution.}
 
 \item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI)}
 

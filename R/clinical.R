@@ -50,21 +50,23 @@ hla_sample <- function(n, replace, origin){
   if(!origin %in% c('PT', 'API', 'AFA', 'CAU', 'HIS')){stop("`origin` is no valid!")}
 
   if(origin == 'PT') {
-    df <- dplyr::slice_sample(hla, n = n, replace = replace)
-    df <- df %>%
-      dplyr::rename(DR1 = DRB11, DR2 = DRB12) %>%
+    df <- dplyr::slice_sample(hla, n = n, replace = replace) |>
+      dplyr::mutate_all(as.character)
+    df <- df |>
+      dplyr::rename(DR1 = DRB11, DR2 = DRB12) |>
       dplyr::select(A1, A2, B1, B2, DR1, DR2)
   }
   if(origin != 'PT') {
     df <- hla_sample_mndp(n = 2*n, replace = replace, origin = origin)
-    df1 <- df %>%
-      dplyr::slice(1:n) %>%
+    df1 <- df |>
+      dplyr::slice(1:n) |>
       dplyr::rename(A1 = A, B1 = B, DR1 = DR)
-    df2 <- df %>%
-      dplyr::slice((n+1):(2*n)) %>%
+    df2 <- df |>
+      dplyr::slice((n+1):(2*n)) |>
       dplyr::rename(A2 = A, B2 = B, DR2 = DR)
-    df <- dplyr::bind_cols(df1, df2) %>%
-      dplyr::select(A1, A2, B1, B2, DR1, DR2)
+    df <- dplyr::bind_cols(df1, df2) |>
+      dplyr::select(A1, A2, B1, B2, DR1, DR2) |>
+      dplyr::mutate_all(as.character)
     }
 
   return(df)

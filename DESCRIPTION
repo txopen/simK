@@ -1,6 +1,6 @@
 Package: simK
 Title: Synthetic Data on Kidney Transplantation 
-Version: 0.1.2
+Version: 0.2.0
 Authors@R: 
     c(person("Bruno", "Lima", , "balima78@gmauil.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9090-4457")),
@@ -10,16 +10,17 @@ Authors@R:
 Description: Functions to generate simulated data for cadaveric donors and kidney transplant candidates. 
     Includes HLA typing data previously puiblished [Lima et al, 2013]<ref: https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true>.
     Particularly useful to generate datasets to run in [KARS](https://balima.shinyapps.io/kars/).  
-License: CC BY 4.0
+License: MIT + file LICENSE
 URL: https://txopen.github.io/simK/
 BugReports: https://github.com/txopen/simK/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 Depends: 
-    R (>= 3.10)
+    R (>= 4.1)
 LazyData: true
 Suggests:
+    covr,
     knitr,
     testthat (>= 3.0.0)
 Imports:
@@ -32,6 +33,7 @@ Imports:
     transplantr,
     truncnorm,
     tidyr,
+    tibble,
     tidyselect
 Config/testthat/edition: 3
 VignetteBuilder: knitr

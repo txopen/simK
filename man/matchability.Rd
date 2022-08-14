@@ -32,7 +32,7 @@ Match Score measure of how difficult it is to match a patient with a organ donor
 \description{
 Computes the number donors on dataset D10K that are a match to
 a given transplant candidate. A sample of D10K is selected according to
-cPRA value, and donors ABO identical and HLA mismatch level 1 or 2
+cPRA value, afterwards donors ABO identical and HLA mismatch level 1 or 2
 (0 DR or (1 DR and 0 B)) are filtered.
 }
 \examples{

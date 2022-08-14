@@ -4,4 +4,5 @@ utils::globalVariables(c("A1","A2","B1","B2","DR1","DR2","cPRA",
                          "dm","UKKRRI","MS","Tier","RRI","age","height",
                          "hypertension","sex","cmv","GFR","hospital_stay","DRI","hla",
                          "DRB11","DRB12","A","B","DR","MNDPhaps","mmDR",
-                         "level12", "UKKDRI", "mmB", "seed.number"))
+                         "level12", "UKKDRI", "mmB", "seed.number",
+                         "urgent"))

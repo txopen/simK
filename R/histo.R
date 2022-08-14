@@ -59,7 +59,7 @@ mmHLA <- function(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
 #'
 #' @description Computes the number donors on dataset D10K that are a match to
 #' a given transplant candidate. A sample of D10K is selected according to
-#' cPRA value, and donors ABO identical and HLA mismatch level 1 or 2
+#' cPRA value, afterwards donors ABO identical and HLA mismatch level 1 or 2
 #' (0 DR or (1 DR and 0 B)) are filtered.
 #' @param cABO A character from 'A', 'B', 'AB', 'O'
 #' @param cPRA candidate's cPRA value
@@ -85,17 +85,17 @@ matchability <- function(cABO = 'A', cPRA = 85,
 
   n1 <- (100-cPRA)*100
 
-  n.donors <- dplyr::sample_n(D10K, size = n1) %>%
-    dplyr::filter(bg == cABO) %>%
-    dplyr::mutate_if(is.numeric, as.character) %>%
-    dplyr::rowwise() %>%
+  n.donors <- dplyr::sample_n(D10K, size = n1) |>
+    dplyr::filter(bg == cABO) |>
+    dplyr::mutate_if(is.numeric, as.character) |>
+    dplyr::rowwise() |>
     dplyr::mutate(mmB = mmHLA(dA = c(A1,A2), dB = c(B1,B2), dDR = c(DR1,DR2),
                               cA = cA, cB = cB, cDR = cDR)['mmB'],
                   mmDR = mmHLA(dA = c(A1,A2), dB = c(B1,B2), dDR = c(DR1,DR2),
                                cA = cA, cB = cB, cDR = cDR)['mmDR'],
-                  level12 = mmDR == 0 | (mmB == 0 & mmDR == 1)) %>%
-    dplyr::ungroup() %>%
-    dplyr::filter(level12) %>% nrow()
+                  level12 = mmDR == 0 | (mmB == 0 & mmDR == 1)) |>
+    dplyr::ungroup() |>
+    dplyr::filter(level12) |> nrow()
 
   return(n.donors)
 
@@ -117,16 +117,16 @@ vpra <- function(abs = c('A1','A2','B5','DR4'), donors = D10K){
 
   n <- nrow(donors)
 
-  na <- donors %>%
-    dplyr::mutate_at(dplyr::vars(A1,A2), function(x) paste0('A',x)) %>%
-    dplyr::mutate_at(dplyr::vars(B1,B2), function(x) paste0('B',x)) %>%
-    dplyr::mutate_at(dplyr::vars(DR1,DR2), function(x) paste0('DR',x)) %>%
+  na <- donors |>
+    dplyr::mutate_at(dplyr::vars(A1,A2), function(x) paste0('A',x)) |>
+    dplyr::mutate_at(dplyr::vars(B1,B2), function(x) paste0('B',x)) |>
+    dplyr::mutate_at(dplyr::vars(DR1,DR2), function(x) paste0('DR',x)) |>
     dplyr::filter(A1 %in% abs | A2 %in% abs |
                     B1 %in% abs | B2 %in% abs |
-                    DR1 %in% abs | DR2 %in% abs) %>%
+                    DR1 %in% abs | DR2 %in% abs) |>
     nrow()
 
-  res <- na/n * 100
+  res <- round(na/n * 100,1)
 
   return(res)
 
@@ -149,8 +149,8 @@ vpra <- function(abs = c('A1','A2','B5','DR4'), donors = D10K){
 #' @export
 #' @concept histocompatibility
 antbs <- function(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
-                cPRA = 85,
-                origin = 'PT', seed.number = 3){
+                  cPRA = 85,
+                  origin = 'PT', seed.number = 3){
 
   set.seed(seed.number)
 

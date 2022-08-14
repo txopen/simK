@@ -8,8 +8,8 @@
 #' @param probs A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.
 #' @param lower An integer for ages' lower limit.
 #' @param upper An integer for ages' upper limit.
-#' @param mean A value for mean's distribution.
-#' @param sd A value for standar deviation's distribution.
+#' @param mean A value for mean on age's distribution.
+#' @param sd A value for standard deviation on age's distribution.
 #' @param uk A logical value, if TRUE is also computed the Donor Risk Index (DRI)
 #' @param seed.number a numeric seed that will be used for random number generation.
 #' @return A data frame with HLA typing, blood group and truncated ages for a simulated group of transplant donors.
@@ -65,7 +65,7 @@ donors_df <- function(n = 10, replace = TRUE,
       dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, DRI)
   }
 
-  return(df)
+  return(df |> tibble::as_tibble())
 }
 
 #' A data frame with donors characteristics
@@ -82,6 +82,7 @@ donors_df <- function(n = 10, replace = TRUE,
 #' @param mean A value for mean age's distribution.
 #' @param sd A value for standard deviation age's distribution.
 #' @param prob_dm A value for the probability of having Diabetes Mellitus
+#' @param prob_urgent A value for the probability of being clinical utgent
 #' @param uk A logical value, if TRUE is also computed the Donor Risk Index (DRI)
 #' @param seed.number a numeric seed that will be used for random number generation.
 #' @return A data frame with HLA typing, blood group, truncated ages, time on dialysis (in months), cPRA, Tier, MS and RRI (those last 3, only when uk = TRUE) for a simulated group of transplant candidates.
@@ -89,7 +90,7 @@ donors_df <- function(n = 10, replace = TRUE,
 #' candidates_df(n = 10, replace = TRUE, origin = 'PT',
 #' probs_abo = c(0.43, 0.03, 0.08, 0.46), probs_cpra = c(0.7, 0.1, 0.1, 0.1),
 #' lower=18, upper=75, mean = 45, sd = 15,
-#' prob_dm = 0.12,
+#' prob_dm = 0.12, prob_urgent = 0.05,
 #' uk = FALSE, seed.number = 3)
 #' @export
 #' @concept generate_data
@@ -100,6 +101,7 @@ candidates_df <- function(n = 10, replace = TRUE,
                           lower=18, upper=75,
                           mean = 45, sd = 15,
                           prob_dm = 0.12,
+                          prob_urgent = 0.05,
                           uk = FALSE,
                           seed.number = 3){
 
@@ -113,12 +115,18 @@ candidates_df <- function(n = 10, replace = TRUE,
   df$age <- ages(n = n, lower=lower, upper=upper, mean = mean, sd = sd)
   df$ID <- paste0('K', 1:n)
 
+  urg1 <- prob_urgent
+  urg0 <- 1-prob_urgent
+  df$urgent <- sample(c(0,1), size = n, replace = TRUE, prob = c(urg0,urg1))
+
   df <- df %>%
-    dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, cPRA) %>%
+    dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, cPRA, urgent) %>%
     dplyr::mutate(hiper = cPRA > 85,
                   dialysis = purrr::map2_dbl(.x = bg,
                                       .y = hiper,
-                                      ~dial(hiper = .y, bg = .x, seed.number = seed.number)))
+                                      ~dial(hiper = .y, bg = .x, seed.number = seed.number))) %>%
+    dplyr::relocate(urgent, .after = tidyselect::last_col())
+
   if(uk == TRUE){
     dm1 <- prob_dm
     dm0 <- 1-prob_dm
@@ -140,7 +148,7 @@ candidates_df <- function(n = 10, replace = TRUE,
     df$MS <- dplyr::ntile(dplyr::desc(df$ms), 10)
     df <- df %>%
       dplyr::mutate(Tier = ifelse(MS == 10 | cPRA == 100 | dialysis > 7*12, 'A', 'B')) %>%
-      dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, dialysis, cPRA, Tier, MS, RRI)
+      dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, dialysis, cPRA, Tier, MS, RRI, urgent)
 
 
     }
@@ -160,7 +168,9 @@ candidates_df <- function(n = 10, replace = TRUE,
 #' Abs_df(candidates = candidates_df(n=10), origin = 'PT', seed.number = 3)
 #' @export
 #' @concept generate_data
-Abs_df <- function(candidates = candidates_df(n=10), origin = 'PT', seed.number = 3){
+Abs_df <- function(candidates = candidates_df(n=10),
+                   origin = 'PT',
+                   seed.number = 3){
 
   #require("magrittr", quietly = TRUE)
 

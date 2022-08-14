@@ -5,14 +5,16 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.1.2-blue.svg)](https://github.com/txopen/simK)
+[![](https://img.shields.io/badge/devel%20version-0.2.0-blue.svg)](https://github.com/txopen/simK)
 [![R-CMD-check](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
-CC-BY4](https://img.shields.io/badge/license-CC--BY4-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
+[![Codecov test
+coverage](https://codecov.io/gh/txopen/simK/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/simK?branch=main)
 <!-- badges: end -->
 
 **License**: Creative Commons Attribution
@@ -26,6 +28,9 @@ transplant simulations. You can see `simK` in action,
 `simK` allows to generate data with clinical and demographic information
 for a pool of simulated cadaveric donors and simulated wait listed
 candidates for kidney transplantation.
+
+Synthetic data can be used for preliminary analysis and the development
+of analysis code.
 
 Data generated with `simK` are particularly useful on
 [KARS](https://balima.shinyapps.io/kars/).

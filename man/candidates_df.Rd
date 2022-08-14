@@ -15,6 +15,7 @@ candidates_df(
   mean = 45,
   sd = 15,
   prob_dm = 0.12,
+  prob_urgent = 0.05,
   uk = FALSE,
   seed.number = 3
 )
@@ -40,6 +41,8 @@ candidates_df(
 
 \item{prob_dm}{A value for the probability of having Diabetes Mellitus}
 
+\item{prob_urgent}{A value for the probability of being clinical utgent}
+
 \item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI)}
 
 \item{seed.number}{a numeric seed that will be used for random number generation.}
@@ -55,7 +58,7 @@ demographic characteristics.
 candidates_df(n = 10, replace = TRUE, origin = 'PT',
 probs_abo = c(0.43, 0.03, 0.08, 0.46), probs_cpra = c(0.7, 0.1, 0.1, 0.1),
 lower=18, upper=75, mean = 45, sd = 15,
-prob_dm = 0.12,
+prob_dm = 0.12, prob_urgent = 0.05,
 uk = FALSE, seed.number = 3)
 }
 \concept{generate_data}
