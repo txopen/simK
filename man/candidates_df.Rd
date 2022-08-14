@@ -8,14 +8,14 @@ candidates_df(
   n = 10,
   replace = TRUE,
   origin = "PT",
-  probs_abo = c(0.43, 0.03, 0.08, 0.46),
-  probs_cpra = c(0.7, 0.1, 0.1, 0.1),
+  probs.abo = c(0.43, 0.03, 0.08, 0.46),
+  probs.cpra = c(0.7, 0.1, 0.1, 0.1),
   lower = 18,
   upper = 75,
   mean = 45,
   sd = 15,
-  prob_dm = 0.12,
-  prob_urgent = 0.05,
+  prob.dm = 0.12,
+  prob.urgent = 0.05,
   uk = FALSE,
   seed.number = 3
 )
@@ -27,9 +27,9 @@ candidates_df(
 
 \item{origin}{A character value for population origin from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'}
 
-\item{probs_abo}{A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.}
+\item{probs.abo}{A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.}
 
-\item{probs_cpra}{A vector with the probabilities for cPRA groups 0\%, 1\%-50\%, 51\%-84\%, 85\%-100\% (in this order). The sum of the probabilities must be equal to one.}
+\item{probs.cpra}{A vector with the probabilities for cPRA groups 0\%, 1\%-50\%, 51\%-84\%, 85\%-100\% (in this order). The sum of the probabilities must be equal to one.}
 
 \item{lower}{An integer for ages' lower limit.}
 
@@ -39,11 +39,11 @@ candidates_df(
 
 \item{sd}{A value for standard deviation age's distribution.}
 
-\item{prob_dm}{A value for the probability of having Diabetes Mellitus}
+\item{prob.dm}{A value for the probability of having Diabetes Mellitus.}
 
-\item{prob_urgent}{A value for the probability of being clinical utgent}
+\item{prob.urgent}{A value for the probability of being clinical urgent.}
 
-\item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI)}
+\item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI).}
 
 \item{seed.number}{a numeric seed that will be used for random number generation.}
 }
@@ -56,9 +56,9 @@ demographic characteristics.
 }
 \examples{
 candidates_df(n = 10, replace = TRUE, origin = 'PT',
-probs_abo = c(0.43, 0.03, 0.08, 0.46), probs_cpra = c(0.7, 0.1, 0.1, 0.1),
+probs.abo = c(0.43, 0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1),
 lower=18, upper=75, mean = 45, sd = 15,
-prob_dm = 0.12, prob_urgent = 0.05,
+prob.dm = 0.12, prob.urgent = 0.05,
 uk = FALSE, seed.number = 3)
 }
 \concept{generate_data}

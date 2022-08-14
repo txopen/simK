@@ -29,11 +29,12 @@ library(simK)
 A data frame with information for a pool of simulated donors can be generated with the function `donors_df()`:
 
 ```{r, message=F, warning=FALSE}
-donors_df(n = 10,
+donors_df(n = 10, 
           replace = TRUE,
           origin = 'PT',
           probs = c(0.4658, 0.0343, 0.077, 0.4229),
-          lower = 18, upper = 75, mean = 55, sd = 15,
+          lower=18, upper=75,
+          mean = 60, sd = 12,
           uk = FALSE,
           seed.number = 3)
 ```
@@ -62,28 +63,31 @@ Defining `seed.number` allows for reproducibility.
 A simulated waiting list for kidney transplant candidates, can be generated with `candidates_df()`:
 
 ```{r}
-candidates_df(n = 10,
+candidates_df(n = 10, 
               replace = TRUE,
               origin = 'PT',
-              probs_abo = c(0.43, 0.03, 0.08, 0.46),
-              probs_cpra = c(0.7, 0.1, 0.1, 0.1),
-              lower = 18, upper = 75, mean = 45, sd = 15,
-              prob_dm = 0.12,
-              uk = TRUE,
+              probs.abo = c(0.43, 0.03, 0.08, 0.46),
+              probs.cpra = c(0.7, 0.1, 0.1, 0.1),
+              lower=18, upper=75,
+              mean = 45, sd = 15,
+              prob.dm = 0.12,
+              prob.urgent = 0.05,
+              uk = FALSE,
               seed.number = 3)
 ```
 
 For a given number of `n` rows, a data frame is generated with columns: 
 
   + *ID* unique identifier with the prefix 'K'; 
-  + *bg* with the blood group generated from the parameter `probs_abo` a vector with the probabilities for groups A, AB, B and O, respectively (here by default, we assumed group O patients are more frequent); 
+  + *bg* with the blood group generated from the parameter `probs.abo` a vector with the probabilities for groups A, AB, B and O, respectively (here by default, we assumed group O patients are more frequent); 
   + *A1*, *A2*, *B1*, *B2*, *DR1*, *DR2* HLA typing obtained according to `origin` option (with `replace = TRUE` we can generate a data frame without limitations on the number of rows);
   + *age* generated from a Normal distribution with `mean` and `sd` given by the user, values truncated by `lower` and `upper` boundaries;
   + *dialysis* time on dialysis **in months**, values computed according to patients' blood group and hypersensitation status (cPRA > 85%): for patients with blood group O **and** Hypersinsitized time on dialysis obtained from N(85, 20); for those patients blood O **or** Hypersinsitized $N(70,20)$; remaining patients have time on dialysis obtained from $N(35,20)$;
-  + *cPRA* patients are classified in groups with probabilities given by `probs_cpra` for 0%, 1%-50%, 51%-85% and 86%-100%, respectively. Within the groups > 0%, cPRA are computed as random values from distributions $P(\lambda = 30)$, $P(\lambda = 70)$ and $P(\lambda = 90)$;
+  + *cPRA* patients are classified in groups with probabilities given by `probs.cpra` for 0%, 1%-50%, 51%-85% and 86%-100%, respectively. Within the groups > 0%, cPRA are computed as random values from distributions $P(\lambda = 30)$, $P(\lambda = 70)$ and $P(\lambda = 90)$;
   + *Tier* patients are classified in two Tiers as described on [POL186/11 – Kidney Transplantation: Deceased Donor Organ Allocation](https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/22127/pol186.pdf) from UK transplant. In Tier A are patients with MS = 10 or cPRA = 100% or time on dialysis > 7 years, all remaing patients are classified as Tier B;
   + *MS* matchabilily score are the deciles obtained from the number of donors on dataset `D10K` that are a match to each transplant candidate. [This score takes into account a patient’s blood type, HLA type and cPRA value. A patient with a MS = 1 is defined as easy to match and a MS = 10 as difficult to match.](https://www.odt.nhs.uk/odt-structures-and-standards/odt-hub-programme/kidney-offering-scheme/#:~:text=blood%20group%20match-,Key%20terms,10%20as%20difficult%20to%20match)
-  + *RRI* when option `uk = TRUE`, Recipient Risk Index is copmputed as described by [transplantr](https://transplantr.txtools.net/articles/kidney_risk_scores.html). To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from `prob_dm`) are used. Also, we assumed all patients were on dialysis at time of listing.
+  + *RRI* when option `uk = TRUE`, Recipient Risk Index is copmputed as described by [transplantr](https://transplantr.txtools.net/articles/kidney_risk_scores.html). To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from `prob.dm`) are used. Also, we assumed all patients were on dialysis at time of listing.
+  + *urgent* a diccotomic variavel that assumes 1 for clinical urgent patients. It's  generated from `prob.urgent`.
   
 HLA population `origin` can be defined from options: 'PT','API','AFA','CAU' and 'HIS', as reported for `donors_df()` data frame. 
   

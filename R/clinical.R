@@ -5,10 +5,7 @@
 #' @param replace A logical value for sampling with replacement
 #' @param origin A character value from options: API', 'AFA', 'CAU' and 'HIS'
 #' @return A data frame
-#' @examples
-#' hla_sample_mndp(n = 1000, replace = TRUE, origin = 'CAU')
-#' @export
-#' @concept clinical_parameters
+#' @noRd
 hla_sample_mndp <- function(n, replace, origin){
 
   if(!origin %in% c('API','AFA','CAU','HIS')){stop("Origin is not valid! Valid options: 'PT','API','AFA','CAU','HIS'")}
@@ -35,7 +32,7 @@ hla_sample_mndp <- function(n, replace, origin){
 
 #' A data frame with HLA typing
 #'
-#' @description Returns a data frame with HLA-A, -B, -C and -DRB1 typing
+#' @description Returns a data frame with HLA-A, -B and -DRB1 typing
 #' @param n An integer to define the number of rows
 #' @param replace A logical value for sampling with replacement
 #' @param origin A character value from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'

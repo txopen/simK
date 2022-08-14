@@ -1,3 +1,9 @@
+# simK 0.2.1
+
+* corrected functions arguments' names
+
+* increased unit-test quality and coverage.
+
 # simK 0.2.0
 
 * now depends on R > 4.1 and uses the native pipe

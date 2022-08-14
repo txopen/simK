@@ -16,10 +16,10 @@
 ages <- function(n = 100, lower=18, upper=75, mean = 55, sd = 15, seed.number = 123){
 
   if(!is.numeric(n) | n < 1){stop("`n` must be a positive single number!\n")}
-  if(!is.numeric(mean) | n < 1){stop("`mean` must be a positive single number!\n")}
-  if(!is.numeric(sd) | n < 1){stop("`sd` must be a positive single number!\n")}
-  if(!is.numeric(lower) | n < 1){stop("`lower` must be a positive single number!\n")}
-  if(!is.numeric(upper) | n < 1){stop("`upper` must be a positive single number!\n")}
+  if(!is.numeric(mean) | mean < 1){stop("`mean` must be a positive single number!\n")}
+  if(!is.numeric(sd) | sd < 1){stop("`sd` must be a positive single number!\n")}
+  if(!is.numeric(lower) | lower < 1){stop("`lower` must be a positive single number!\n")}
+  if(!is.numeric(upper) | upper < 1){stop("`upper` must be a positive single number!\n")}
 
   set.seed(seed.number)
 

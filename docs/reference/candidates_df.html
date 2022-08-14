@@ -61,13 +61,14 @@ demographic characteristics.</p>
   n <span class="op">=</span> <span class="fl">10</span>,
   replace <span class="op">=</span> <span class="cn">TRUE</span>,
   origin <span class="op">=</span> <span class="st">"PT"</span>,
-  probs_abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>,
-  probs_cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,
+  probs.abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>,
+  probs.cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,
   lower <span class="op">=</span> <span class="fl">18</span>,
   upper <span class="op">=</span> <span class="fl">75</span>,
   mean <span class="op">=</span> <span class="fl">45</span>,
   sd <span class="op">=</span> <span class="fl">15</span>,
-  prob_dm <span class="op">=</span> <span class="fl">0.12</span>,
+  prob.dm <span class="op">=</span> <span class="fl">0.12</span>,
+  prob.urgent <span class="op">=</span> <span class="fl">0.05</span>,
   uk <span class="op">=</span> <span class="cn">FALSE</span>,
   seed.number <span class="op">=</span> <span class="fl">3</span>
 <span class="op">)</span></code></pre></div>
@@ -81,9 +82,9 @@ demographic characteristics.</p>
 <dd><p>A logical value for sampling with replacement</p></dd>
 <dt>origin</dt>
 <dd><p>A character value for population origin from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'</p></dd>
-<dt>probs_abo</dt>
+<dt>probs.abo</dt>
 <dd><p>A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.</p></dd>
-<dt>probs_cpra</dt>
+<dt>probs.cpra</dt>
 <dd><p>A vector with the probabilities for cPRA groups 0%, 1%-50%, 51%-84%, 85%-100% (in this order). The sum of the probabilities must be equal to one.</p></dd>
 <dt>lower</dt>
 <dd><p>An integer for ages' lower limit.</p></dd>
@@ -93,10 +94,12 @@ demographic characteristics.</p>
 <dd><p>A value for mean age's distribution.</p></dd>
 <dt>sd</dt>
 <dd><p>A value for standard deviation age's distribution.</p></dd>
-<dt>prob_dm</dt>
-<dd><p>A value for the probability of having Diabetes Mellitus</p></dd>
+<dt>prob.dm</dt>
+<dd><p>A value for the probability of having Diabetes Mellitus.</p></dd>
+<dt>prob.urgent</dt>
+<dd><p>A value for the probability of being clinical urgent.</p></dd>
 <dt>uk</dt>
-<dd><p>A logical value, if TRUE is also computed the Donor Risk Index (DRI)</p></dd>
+<dd><p>A logical value, if TRUE is also computed the Donor Risk Index (DRI).</p></dd>
 <dt>seed.number</dt>
 <dd><p>a numeric seed that will be used for random number generation.</p></dd>
 </dl></div>
@@ -108,23 +111,11 @@ demographic characteristics.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">candidates_df</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, origin <span class="op">=</span> <span class="st">'PT'</span>,</span>
-<span class="r-in">probs_abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>, probs_cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span class="r-in">probs.abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>, probs.cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
 <span class="r-in">lower<span class="op">=</span><span class="fl">18</span>, upper<span class="op">=</span><span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">45</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
-<span class="r-in">prob_dm <span class="op">=</span> <span class="fl">0.12</span>,</span>
+<span class="r-in">prob.dm <span class="op">=</span> <span class="fl">0.12</span>, prob.urgent <span class="op">=</span> <span class="fl">0.05</span>,</span>
 <span class="r-in">uk <span class="op">=</span> <span class="cn">FALSE</span>, seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 x 12</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ID    bg       A1    A2    B1    B2   DR1   DR2   age  cPRA hiper dialysis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> K1    O         1    29     8    44    11     7    37     0 FALSE       64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> K2    A         2     3     7    57     4     8    42     0 FALSE       16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> K3    O        11    33    14    35     1    13    68     0 FALSE       64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> K4    O        24    30    49    58    11    11    46     0 FALSE       64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> K5    A         2     3     7    51     1    13    47    76 FALSE       16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> K6    A        30    68    15    18     3     4    71    25 FALSE       16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> K7    O         3    26    18    40    11    13    52    91 TRUE        79</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> K8    O         1     1     7     8     3    13    26     0 FALSE       64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> K9    A         3     3     7    44    15     8    35     0 FALSE       16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> K10   A        11    29    44    57     7     7    38     0 FALSE       16</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in candidates_df(n = 10, replace = TRUE, origin = "PT", probs.abo = c(0.43,     0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1), lower = 18,     upper = 75, mean = 45, sd = 15, prob.dm = 0.12, prob.urgent = 0.05,     uk = FALSE, seed.number = 3):</span> unused arguments (probs.abo = c(0.43, 0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1), prob.dm = 0.12, prob.urgent = 0.05)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

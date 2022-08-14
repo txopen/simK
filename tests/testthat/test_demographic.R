@@ -13,7 +13,7 @@ test_that("Ages", {
                40)
 
   invalid.numbers <- list(-1,'0','x','1',-10)
-  for(i in 1:invalid.numbers){
+  for(i in 1:length(invalid.numbers)){
     expect_error(ages(n = invalid.numbers[[i]]))
     expect_error(ages(lower = invalid.numbers[[i]]))
     expect_error(ages(upper = invalid.numbers[[i]]))

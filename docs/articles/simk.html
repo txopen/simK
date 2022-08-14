@@ -105,18 +105,18 @@
           uk <span class="op">=</span> <span class="cn">FALSE</span>,
           seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 x 9</span></span>
-<span class="co">#&gt;    ID    bg       A1    A2    B1    B2   DR1   DR2   age</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A         1    29     8    44    11     7    47</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O         2     3     7    57     4     8    52</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A        11    33    14    35     1    13    56</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O        24    30    49    58    11    11    57</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B         2     3     7    51     1    13    62</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A        30    68    15    18     3     4    36</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O         3    26    18    40    11    13    45</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B         1     1     7     8     3    13    48</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O         3     3     7    44    15     8    73</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A        11    29    44    57     7     7    60</span></code></pre></div>
+<span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A     1     29    8     44    11    7        47</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O     2     3     7     57    4     8        52</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A     11    33    14    35    1     13       56</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O     24    30    49    58    11    11       57</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B     2     3     7     51    1     13       62</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A     30    68    15    18    3     4        36</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O     3     26    18    40    11    13       45</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B     1     1     7     8     3     13       48</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O     3     3     7     44    15    8        73</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A     11    29    44    57    7     7        60</span></code></pre></div>
 <p>For a given number of rows <code>n</code>, a data frame is generated with columns:</p>
 <ul>
 <li>
@@ -155,7 +155,7 @@
               prob_dm <span class="op">=</span> <span class="fl">0.12</span>,
               uk <span class="op">=</span> <span class="cn">TRUE</span>,
               seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 x 14</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 x 15</span></span>
 <span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age dialysis  cPRA Tier </span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37       64     0 B    </span>
@@ -168,7 +168,7 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26       64     0 B    </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35       16     0 B    </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38       16     0 B    </span>
-<span class="co">#&gt; <span style="color: #949494;"># ... with 2 more variables: MS &lt;int&gt;, RRI &lt;chr&gt;</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># ... with 3 more variables: MS &lt;int&gt;, RRI &lt;chr&gt;, urgent &lt;dbl&gt;</span></span></code></pre></div>
 <p>For a given number of <code>n</code> rows, a data frame is generated with columns:</p>
 <ul>
 <li>

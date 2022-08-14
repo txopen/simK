@@ -75,48 +75,52 @@ donors_df <- function(n = 10, replace = TRUE,
 #' @param n An integer to define the number of rows
 #' @param replace A logical value for sampling with replacement
 #' @param origin A character value for population origin from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'
-#' @param probs_abo A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.
-#' @param probs_cpra A vector with the probabilities for cPRA groups 0%, 1%-50%, 51%-84%, 85%-100% (in this order). The sum of the probabilities must be equal to one.
+#' @param probs.abo A vector with the probabilities for blood group A, AB, B and O (in this order). The sum of the probabilities must be equal to one.
+#' @param probs.cpra A vector with the probabilities for cPRA groups 0%, 1%-50%, 51%-84%, 85%-100% (in this order). The sum of the probabilities must be equal to one.
 #' @param lower An integer for ages' lower limit.
 #' @param upper An integer for ages' upper limit.
 #' @param mean A value for mean age's distribution.
 #' @param sd A value for standard deviation age's distribution.
-#' @param prob_dm A value for the probability of having Diabetes Mellitus
-#' @param prob_urgent A value for the probability of being clinical utgent
-#' @param uk A logical value, if TRUE is also computed the Donor Risk Index (DRI)
+#' @param prob.dm A value for the probability of having Diabetes Mellitus.
+#' @param prob.urgent A value for the probability of being clinical urgent.
+#' @param uk A logical value, if TRUE is also computed the Donor Risk Index (DRI).
 #' @param seed.number a numeric seed that will be used for random number generation.
 #' @return A data frame with HLA typing, blood group, truncated ages, time on dialysis (in months), cPRA, Tier, MS and RRI (those last 3, only when uk = TRUE) for a simulated group of transplant candidates.
 #' @examples
 #' candidates_df(n = 10, replace = TRUE, origin = 'PT',
-#' probs_abo = c(0.43, 0.03, 0.08, 0.46), probs_cpra = c(0.7, 0.1, 0.1, 0.1),
+#' probs.abo = c(0.43, 0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1),
 #' lower=18, upper=75, mean = 45, sd = 15,
-#' prob_dm = 0.12, prob_urgent = 0.05,
+#' prob.dm = 0.12, prob.urgent = 0.05,
 #' uk = FALSE, seed.number = 3)
 #' @export
 #' @concept generate_data
 candidates_df <- function(n = 10, replace = TRUE,
                           origin = 'PT',
-                          probs_abo = c(0.43, 0.03, 0.08, 0.46),
-                          probs_cpra = c(0.7, 0.1, 0.1, 0.1),
+                          probs.abo = c(0.43, 0.03, 0.08, 0.46),
+                          probs.cpra = c(0.7, 0.1, 0.1, 0.1),
                           lower=18, upper=75,
                           mean = 45, sd = 15,
-                          prob_dm = 0.12,
-                          prob_urgent = 0.05,
+                          prob.dm = 0.12,
+                          prob.urgent = 0.05,
                           uk = FALSE,
                           seed.number = 3){
 
   #require("magrittr", quietly = TRUE)
 
+  if(!is.numeric(prob.dm) | prob.dm < 0 | prob_dm > 1){stop("`prob.dm` must be a probability between 0 and 1!")}
+  if(!is.numeric(prob.urgent) | prob.urgent < 0 | prob.dm > 1){stop("`prob.urgent` must be a probability between 0 and 1!")}
+
+
   set.seed(seed.number)
 
   df <- hla_sample(n = n, replace = replace, origin = origin)
-  df$bg <- abo(n = n, probs = probs_abo, seed.number = seed.number)
-  df$cPRA <- cpra(n = n, probs = probs_cpra, seed.number = seed.number)
+  df$bg <- abo(n = n, probs = probs.abo, seed.number = seed.number)
+  df$cPRA <- cpra(n = n, probs = probs.cpra, seed.number = seed.number)
   df$age <- ages(n = n, lower=lower, upper=upper, mean = mean, sd = sd)
   df$ID <- paste0('K', 1:n)
 
-  urg1 <- prob_urgent
-  urg0 <- 1-prob_urgent
+  urg1 <- prob.urgent
+  urg0 <- 1-prob.urgent
   df$urgent <- sample(c(0,1), size = n, replace = TRUE, prob = c(urg0,urg1))
 
   df <- df %>%
@@ -128,8 +132,8 @@ candidates_df <- function(n = 10, replace = TRUE,
     dplyr::relocate(urgent, .after = tidyselect::last_col())
 
   if(uk == TRUE){
-    dm1 <- prob_dm
-    dm0 <- 1-prob_dm
+    dm1 <- prob.dm
+    dm0 <- 1-prob.dm
     df$dm <- sample(c(0,1), size = n, replace = TRUE, prob = c(dm0,dm1))
     df<-df %>%
       dplyr::mutate(UKKRRI = transplantr::ukkrri(age = age,
