@@ -35,7 +35,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">simK</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,26 +96,27 @@
 </h3>
 <p>A data frame with information for a pool of simulated donors can be generated with the function <code><a href="../reference/donors_df.html">donors_df()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/donors_df.html">donors_df</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/donors_df.html">donors_df</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, </span>
 <span>          replace <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          origin <span class="op">=</span> <span class="st">'PT'</span>,</span>
 <span>          probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4658</span>, <span class="fl">0.0343</span>, <span class="fl">0.077</span>, <span class="fl">0.4229</span><span class="op">)</span>,</span>
-<span>          lower <span class="op">=</span> <span class="fl">18</span>, upper <span class="op">=</span> <span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">55</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>          lower<span class="op">=</span><span class="fl">18</span>, upper<span class="op">=</span><span class="fl">75</span>,</span>
+<span>          mean <span class="op">=</span> <span class="fl">60</span>, sd <span class="op">=</span> <span class="fl">12</span>,</span>
 <span>          uk <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>          seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 9</span></span></span>
 <span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A     1     29    8     44    11    7        47</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O     2     3     7     57    4     8        52</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A     11    33    14    35    1     13       56</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O     24    30    49    58    11    11       57</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B     2     3     7     51    1     13       62</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A     30    68    15    18    3     4        36</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O     3     26    18    40    11    13       45</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B     1     1     7     8     3     13       48</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O     3     3     7     44    15    8        73</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A     11    29    44    57    7     7        60</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A     1     29    8     44    11    7        53</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O     2     3     7     57    4     8        57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A     11    33    14    35    1     13       61</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O     24    30    49    58    11    11       62</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B     2     3     7     51    1     13       66</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A     30    68    15    18    3     4        45</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O     3     26    18    40    11    13       52</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B     1     1     7     8     3     13       55</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O     3     3     7     44    15    8        75</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A     11    29    44    57    7     7        64</span></span></code></pre></div>
 <p>For a given number of rows <code>n</code>, a data frame is generated with columns:</p>
 <ul>
 <li>
@@ -145,36 +146,38 @@
 </h3>
 <p>A simulated waiting list for kidney transplant candidates, can be generated with <code><a href="../reference/candidates_df.html">candidates_df()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/candidates_df.html">candidates_df</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/candidates_df.html">candidates_df</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, </span>
 <span>              replace <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>              origin <span class="op">=</span> <span class="st">'PT'</span>,</span>
-<span>              probs_abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>,</span>
-<span>              probs_cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
-<span>              lower <span class="op">=</span> <span class="fl">18</span>, upper <span class="op">=</span> <span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">45</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
-<span>              prob_dm <span class="op">=</span> <span class="fl">0.12</span>,</span>
-<span>              uk <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>              probs.abo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.43</span>, <span class="fl">0.03</span>, <span class="fl">0.08</span>, <span class="fl">0.46</span><span class="op">)</span>,</span>
+<span>              probs.cpra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span>              lower<span class="op">=</span><span class="fl">18</span>, upper<span class="op">=</span><span class="fl">75</span>,</span>
+<span>              mean <span class="op">=</span> <span class="fl">45</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>              prob.dm <span class="op">=</span> <span class="fl">0.12</span>,</span>
+<span>              prob.urgent <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>              uk <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>              seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 15</span></span></span>
-<span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age dialysis  cPRA Tier </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37       64     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42       16     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68       64     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46       64     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47       16    76 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71       16    25 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52       79    91 A    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26       64     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35       16     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38       16     0 B    </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 3 more variables: MS &lt;int&gt;, RRI &lt;chr&gt;, urgent &lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 13</span></span></span>
+<span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age  cPRA hiper dialysis</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37     0 FALSE       64</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68     0 FALSE       64</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46     0 FALSE       64</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47    76 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71    25 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52    91 TRUE        79</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26     0 FALSE       64</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: urgent &lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `colnames()` to see all variable names</span></span></span></code></pre></div>
 <p>For a given number of <code>n</code> rows, a data frame is generated with columns:</p>
 <ul>
 <li>
 <em>ID</em> unique identifier with the prefix ‘K’;</li>
 <li>
-<em>bg</em> with the blood group generated from the parameter <code>probs_abo</code> a vector with the probabilities for groups A, AB, B and O, respectively (here by default, we assumed group O patients are more frequent);</li>
+<em>bg</em> with the blood group generated from the parameter <code>probs.abo</code> a vector with the probabilities for groups A, AB, B and O, respectively (here by default, we assumed group O patients are more frequent);</li>
 <li>
 <em>A1</em>, <em>A2</em>, <em>B1</em>, <em>B2</em>, <em>DR1</em>, <em>DR2</em> HLA typing obtained according to <code>origin</code> option (with <code>replace = TRUE</code> we can generate a data frame without limitations on the number of rows);</li>
 <li>
@@ -182,14 +185,16 @@
 <li>
 <em>dialysis</em> time on dialysis <strong>in months</strong>, values computed according to patients’ blood group and hypersensitation status (cPRA &gt; 85%): for patients with blood group O <strong>and</strong> Hypersinsitized time on dialysis obtained from N(85, 20); for those patients blood O <strong>or</strong> Hypersinsitized <span class="math inline">\(N(70,20)\)</span>; remaining patients have time on dialysis obtained from <span class="math inline">\(N(35,20)\)</span>;</li>
 <li>
-<em>cPRA</em> patients are classified in groups with probabilities given by <code>probs_cpra</code> for 0%, 1%-50%, 51%-85% and 86%-100%, respectively. Within the groups &gt; 0%, cPRA are computed as random values from distributions <span class="math inline">\(P(\lambda = 30)\)</span>, <span class="math inline">\(P(\lambda = 70)\)</span> and <span class="math inline">\(P(\lambda = 90)\)</span>;</li>
+<em>cPRA</em> patients are classified in groups with probabilities given by <code>probs.cpra</code> for 0%, 1%-50%, 51%-85% and 86%-100%, respectively. Within the groups &gt; 0%, cPRA are computed as random values from distributions <span class="math inline">\(P(\lambda = 30)\)</span>, <span class="math inline">\(P(\lambda = 70)\)</span> and <span class="math inline">\(P(\lambda = 90)\)</span>;</li>
 <li>
 <em>Tier</em> patients are classified in two Tiers as described on <a href="https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/22127/pol186.pdf" class="external-link">POL186/11 – Kidney Transplantation: Deceased Donor Organ Allocation</a> from UK transplant. In Tier A are patients with MS = 10 or cPRA = 100% or time on dialysis &gt; 7 years, all remaing patients are classified as Tier B;</li>
 <li>
 <em>MS</em> matchabilily score are the deciles obtained from the number of donors on dataset <code>D10K</code> that are a match to each transplant candidate. <a href="https://www.odt.nhs.uk/odt-structures-and-standards/odt-hub-programme/kidney-offering-scheme/#:~:text=blood%20group%20match-,Key%20terms,10%20as%20difficult%20to%20match" class="external-link">This score takes into account a patient’s blood type, HLA type and cPRA value. A patient with a MS = 1 is defined as easy to match and a MS = 10 as difficult to match.</a>
 </li>
 <li>
-<em>RRI</em> when option <code>uk = TRUE</code>, Recipient Risk Index is copmputed as described by <a href="https://transplantr.txtools.net/articles/kidney_risk_scores.html" class="external-link">transplantr</a>. To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from <code>prob_dm</code>) are used. Also, we assumed all patients were on dialysis at time of listing.</li>
+<em>RRI</em> when option <code>uk = TRUE</code>, Recipient Risk Index is copmputed as described by <a href="https://transplantr.txtools.net/articles/kidney_risk_scores.html" class="external-link">transplantr</a>. To compute RRI, variables age, time on dialysis (in days) and the probability of being diabetic (obtained from <code>prob.dm</code>) are used. Also, we assumed all patients were on dialysis at time of listing.</li>
+<li>
+<em>urgent</em> a diccotomic variavel that assumes 1 for clinical urgent patients. It’s generated from <code>prob.urgent</code>.</li>
 </ul>
 <p>HLA population <code>origin</code> can be defined from options: ‘PT’,‘API’,‘AFA’,‘CAU’ and ‘HIS’, as reported for <code><a href="../reference/donors_df.html">donors_df()</a></code> data frame.</p>
 <p>Defining <code>seed.number</code> allows for reproducibility.</p>
