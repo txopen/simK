@@ -107,7 +107,7 @@ candidates_df <- function(n = 10, replace = TRUE,
 
   #require("magrittr", quietly = TRUE)
 
-  if(!is.numeric(prob.dm) | prob.dm < 0 | prob_dm > 1){stop("`prob.dm` must be a probability between 0 and 1!")}
+  if(!is.numeric(prob.dm) | prob.dm < 0 | prob.dm > 1){stop("`prob.dm` must be a probability between 0 and 1!")}
   if(!is.numeric(prob.urgent) | prob.urgent < 0 | prob.dm > 1){stop("`prob.urgent` must be a probability between 0 and 1!")}
 
 

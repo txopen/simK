@@ -12,7 +12,7 @@ demographic characteristics."><meta property="og:image" content="https://txopen.
     
     <a class="navbar-brand me-2" href="../index.html">simK</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +115,20 @@ demographic characteristics.</p>
 <span class="r-in">lower<span class="op">=</span><span class="fl">18</span>, upper<span class="op">=</span><span class="fl">75</span>, mean <span class="op">=</span> <span class="fl">45</span>, sd <span class="op">=</span> <span class="fl">15</span>,</span>
 <span class="r-in">prob.dm <span class="op">=</span> <span class="fl">0.12</span>, prob.urgent <span class="op">=</span> <span class="fl">0.05</span>,</span>
 <span class="r-in">uk <span class="op">=</span> <span class="cn">FALSE</span>, seed.number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in candidates_df(n = 10, replace = TRUE, origin = "PT", probs.abo = c(0.43,     0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1), lower = 18,     upper = 75, mean = 45, sd = 15, prob.dm = 0.12, prob.urgent = 0.05,     uk = FALSE, seed.number = 3):</span> unused arguments (probs.abo = c(0.43, 0.03, 0.08, 0.46), probs.cpra = c(0.7, 0.1, 0.1, 0.1), prob.dm = 0.12, prob.urgent = 0.05)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 x 13</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ID    bg    A1    A2    B1    B2    DR1   DR2     age  cPRA hiper dialysis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37     0 FALSE       64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42     0 FALSE       16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68     0 FALSE       64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46     0 FALSE       64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47    76 FALSE       16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71    25 FALSE       16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52    91 TRUE        79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26     0 FALSE       64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35     0 FALSE       16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38     0 FALSE       16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ... with 1 more variable: urgent &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
