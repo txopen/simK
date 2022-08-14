@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.2.0-blue.svg)](https://github.com/txopen/simK)
+[![](https://img.shields.io/badge/devel%20version-0.2.1-blue.svg)](https://github.com/txopen/simK)
 [![R-CMD-check](https://github.com/txopen/simK/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/simK/actions)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -16,10 +16,6 @@ MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.
 [![Codecov test
 coverage](https://codecov.io/gh/txopen/simK/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/simK?branch=main)
 <!-- badges: end -->
-
-**License**: Creative Commons Attribution
-[CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to
-share and adapt, but don’t forget to credit the author. :sunglasses:
 
 :dart: Functions to procedurally generate synthetic data in R for kidney
 transplant simulations. You can see `simK` in action,
