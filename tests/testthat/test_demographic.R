@@ -11,4 +11,13 @@ test_that("Ages", {
                53)
   expect_equal(ages(n = 1, lower=40, upper=50, mean = 25, sd = 13),
                40)
+
+  invalid.numbers <- list(-1,'0','x','1',-10)
+  for(i in 1:invalid.numbers){
+    expect_error(ages(n = invalid.numbers[[i]]))
+    expect_error(ages(lower = invalid.numbers[[i]]))
+    expect_error(ages(upper = invalid.numbers[[i]]))
+    expect_error(ages(mean = invalid.numbers[[i]]))
+    expect_error(ages(sd = invalid.numbers[[i]]))
+    }
 })

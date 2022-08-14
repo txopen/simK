@@ -2,7 +2,7 @@
 % Please edit documentation in R/clinical.R
 \name{hla_sample_mndp}
 \alias{hla_sample_mndp}
-\title{A data frame with HLA haplotypes}
+\title{A data frame with HLA haplotypes from MNDP}
 \usage{
 hla_sample_mndp(n, replace, origin)
 }
@@ -11,7 +11,7 @@ hla_sample_mndp(n, replace, origin)
 
 \item{replace}{A logical value for sampling with replacement}
 
-\item{origin}{A character value from options: 'API', 'AFA', 'CAU' and 'HIS'}
+\item{origin}{A character value from options: API', 'AFA', 'CAU' and 'HIS'}
 }
 \value{
 A data frame

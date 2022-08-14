@@ -140,7 +140,7 @@ vpra <- function(abs = c('A1','A2','B5','DR4'), donors = D10K){
 #' @param cB candidate's HLA-B typing
 #' @param cDR candidate's HLA-DR typing
 #' @param cPRA candidate's cPRA value
-#' @param origin A character value from options: 'API', 'AFA', 'CAU' and 'HIS'
+#' @param origin A character value from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'
 #' @param seed.number a numeric seed that will be used for random number generation.
 #' @return a character vector with HLA abs.
 #' @examples
@@ -155,6 +155,8 @@ antbs <- function(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
   set.seed(seed.number)
 
   typing <- c(paste0('A',cA), paste0('B',cB), paste0('DR',cDR))
+
+  if(!origin %in% c('PT','API','AFA','CAU','HIS')){stop("Origin is not valid! Valid options: 'PT','API','AFA','CAU','HIS'")}
 
   if(origin == 'PT') {
     valid.ags <- c(agA, agB, agDR)[!c(agA, agB, agDR) %in% typing]

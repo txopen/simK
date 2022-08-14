@@ -22,7 +22,7 @@ antbs(
 
 \item{cPRA}{candidate's cPRA value}
 
-\item{origin}{A character value from options: 'API', 'AFA', 'CAU' and 'HIS'}
+\item{origin}{A character value from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'}
 
 \item{seed.number}{a numeric seed that will be used for random number generation.}
 }

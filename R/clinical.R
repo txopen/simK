@@ -1,15 +1,18 @@
-#' A data frame with HLA haplotypes
+#' A data frame with HLA haplotypes from MNDP
 #'
 #' @description Returns a data frame with HLA-A, -B and -DRB1 haplotypes from MNDP by race and sampled by their frequencies
 #' @param n An integer to define the number of rows
 #' @param replace A logical value for sampling with replacement
-#' @param origin A character value from options: 'API', 'AFA', 'CAU' and 'HIS'
+#' @param origin A character value from options: API', 'AFA', 'CAU' and 'HIS'
 #' @return A data frame
 #' @examples
 #' hla_sample_mndp(n = 1000, replace = TRUE, origin = 'CAU')
 #' @export
 #' @concept clinical_parameters
 hla_sample_mndp <- function(n, replace, origin){
+
+  if(!origin %in% c('API','AFA','CAU','HIS')){stop("Origin is not valid! Valid options: 'PT','API','AFA','CAU','HIS'")}
+
   if(origin == 'CAU') {
     df <- MNDPhaps[MNDPhaps$cau > 0, ]
     df <- df[sample(seq_len(nrow(df)), size = n, replace = replace, prob = df$cau),]
@@ -45,9 +48,11 @@ hla_sample <- function(n, replace, origin){
 
   #require("magrittr", quietly = TRUE)
 
+  if(!origin %in% c('PT','API','AFA','CAU','HIS')){stop("Origin is not valid! Valid options: 'PT','API','AFA','CAU','HIS'")}
+
   if(!is.numeric(n)){stop("`n` must be a single number!")}
   if(!is.logical(replace)){stop("`replace` must be logical (TRUE or FALSE)")}
-  if(!origin %in% c('PT', 'API', 'AFA', 'CAU', 'HIS')){stop("`origin` is no valid!")}
+  #if(!origin %in% c('PT', 'API', 'AFA', 'CAU', 'HIS')){stop("`origin` is no valid!")}
 
   if(origin == 'PT') {
     df <- dplyr::slice_sample(hla, n = n, replace = replace) |>
@@ -88,7 +93,7 @@ abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number =
 
   if(!is.numeric(n) | n < 1){stop("`n` must be a positive number!")}
   if(round(sum(probs)) != 1){stop("`probs` do not sum 1!")}
-  if(!is.numeric(n) | n < 1){stop("`seed.number` must be a positive number!")}
+  if(!is.numeric(seed.number) | seed.number < 1){stop("`seed.number` must be a positive number!")}
 
   abo <- c('A','AB','B','O')
 
@@ -110,6 +115,7 @@ abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number =
 #' @export
 #' @concept clinical_parameters
 aGFR <- function(age = 43, seed.number = 123){
+
   if(!is.numeric(age) | age < 1 | age > 99){stop("`age` must be between 1 and 99!")}
 
   set.seed(seed.number)

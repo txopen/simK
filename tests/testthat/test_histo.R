@@ -18,6 +18,11 @@ test_that("Matchability from D10K", {
                13)
   expect_equal(matchability(cABO = 'O', cPRA = 0, seed.number = 1),
                395)
+
+  invalid.ABO <- list(0, 'X', 'a', 'o', 'b')
+  for(i in 1:length(invalid.ABO)){
+  expect_error(matchability(cABO = invalid.ABO[[i]]))
+  }
 })
 
 test_that("virtual PRA", {
@@ -31,7 +36,7 @@ test_that("virtual PRA", {
                10.9)
 })
 
-test_that("virtual PRA", {
+test_that("HLA antibodies", {
   expect_equal(antbs(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
                      cPRA = 85,
                      origin = 'PT', seed.number = 3)$vPRA,
@@ -44,4 +49,9 @@ test_that("virtual PRA", {
                      cPRA = 50,
                      origin = 'PT', seed.number = 1)$Abs,
                c("DR15","A24","B53","A1"))
+
+  invalid.origin <- list('p',0,1,'us','api','afa','c')
+  for(i in 1:length(invalid.origin)){
+    expect_error(antbs(origin = invalid.origin[[i]]))
+    }
 })
