@@ -23,7 +23,7 @@ share and adapt, but don’t forget to credit the author. :sunglasses:
 
 :dart: Functions to procedurally generate synthetic data in R for kidney
 transplant simulations. You can see `simK` in action,
-[here](https://simk.netlify.app/).
+[here](https://txopen.github.io/simK/index.html).
 
 `simK` allows to generate data with clinical and demographic information
 for a pool of simulated cadaveric donors and simulated wait listed

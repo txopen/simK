@@ -29,7 +29,7 @@ library(badger)
 
 **License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the author. :sunglasses:
 
-:dart: Functions to procedurally generate synthetic data in R for kidney transplant simulations. You can see `simK` in action, [here](https://simk.netlify.app/).
+:dart: Functions to procedurally generate synthetic data in R for kidney transplant simulations. You can see `simK` in action, [here](https://txopen.github.io/simK/index.html).
 
 `simK` allows to generate data with clinical and demographic information for a pool of simulated cadaveric donors and simulated wait listed candidates for kidney transplantation.
 
