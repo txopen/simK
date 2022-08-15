@@ -19,40 +19,56 @@
 mmHLA <- function(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
                   cA = c('1','2'), cB = c('3','15'), cDR = c('4','7')){
 
-  mmA = NULL
-  mmB = NULL
-  mmDR = NULL
+    if(!is.character(dA)){stop("donor's HLA-A typing is not valid!\n")}
+    if(!is.character(dB)){stop("donor's HLA-B typing is not valid!\n")}
+    if(!is.character(dDR)){stop("donor's HLA-DR typing is not valid!\n")}
+    if(!is.character(cA)){stop("candidate's HLA-A typing is not valid!\n")}
+    if(!is.character(cB)){stop("candidate's HLA-B typing is not valid!\n")}
+    if(!is.character(cDR)){stop("candidate's HLA-DR typing is not valid!\n")}
 
-  # verify function parameters
-  if(!is.character(dA)){stop("donor's HLA-A typing is not valid!\n")}
-  if(!is.character(dB)){stop("donor's HLA-B typing is not valid!\n")}
-  if(!is.character(dDR)){stop("donor's HLA-DR typing is not valid!\n")}
-  if(!is.character(cA)){stop("candidate's HLA-A typing is not valid!\n")}
-  if(!is.character(cB)){stop("candidate's HLA-B typing is not valid!\n")}
-  if(!is.character(cDR)){stop("candidate's HLA-DR typing is not valid!\n")}
+    mmA <- NULL
+    mmB <- NULL
+    mmDR <- NULL
 
-  # compute missmatches
-  mmA<-ifelse((dA[1] %in% cA & dA[2] %in% cA) | (dA[1] %in% cA & (is.na(dA[2]) | dA[2] == "")), 0,
-              ifelse(dA[1] %in% cA | dA[2] %in% cA, 1,
-                     ifelse(!dA[1] %in% cA & (is.na(dA[2]) | dA[2] == ""), 1,
-                            ifelse(dA[1] == dA[2], 1,2))))
+    # compute missmatches
+    mmA <- dplyr::if_else((dA[1] %in% cA & dA[2] %in% cA) | (dA[1] %in% cA & (is.na(dA[2]) | dA[2] == "")), 0,
+                          dplyr::if_else(dA[1] %in% cA | dA[2] %in% cA, 1,
+                                         dplyr::if_else(!dA[1] %in% cA & (is.na(dA[2]) | dA[2] == ""), 1,
+                                                        dplyr::if_else(dA[1] == dA[2], 1,2))))
 
-  mmB<-ifelse((dB[1] %in% cB & dB[2] %in% cB) | (dB[1] %in% cB & (is.na(dB[2]) | dB[2] == "")), 0,
-              ifelse(dB[1] %in% cB | dB[2] %in% cB, 1,
-                     ifelse(!dB[1] %in% cB & (is.na(dB[2]) | dB[2] == ""), 1,
-                            ifelse(dB[1] == dB[2], 1,2))))
+    mmB <- dplyr::if_else((dB[1] %in% cB & dB[2] %in% cB) | (dB[1] %in% cB & (is.na(dB[2]) | dB[2] == "")), 0,
+                          dplyr::if_else(dB[1] %in% cB | dB[2] %in% cB, 1,
+                                         dplyr::if_else(!dB[1] %in% cB & (is.na(dB[2]) | dB[2] == ""), 1,
+                                                        dplyr::if_else(dB[1] == dB[2], 1,2))))
 
-  mmDR<-ifelse((dDR[1] %in% cDR & dDR[2] %in% cDR) | (dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == "")), 0,
-               ifelse(dDR[1] %in% cDR | dDR[2] %in% cDR, 1,
-                      ifelse(!dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == ""), 1,
-                             ifelse(dDR[1] == dDR[2],1,2))))
+    mmDR <- dplyr::if_else((dDR[1] %in% cDR & dDR[2] %in% cDR) | (dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == "")), 0,
+                           dplyr::if_else(dDR[1] %in% cDR | dDR[2] %in% cDR, 1,
+                                          dplyr::if_else(!dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == ""), 1,
+                                                         dplyr::if_else(dDR[1] == dDR[2],1,2))))
 
-  # resume results
-  mmHLA = mmA + mmB + mmDR
-  mm = c(mmA,mmB,mmDR,mmHLA)
-  names(mm) <- c("mmA","mmB","mmDR","mmHLA")
+    mmHLA <- mmA + mmB + mmDR
+    mm <- c(mmA,mmB,mmDR,mmHLA)
+    names(mm) <- c("mmA","mmB","mmDR","mmHLA")
 
-  return(mm)
+    return(mm)
+
+
+  # # compute missmatches with base ifelse
+  # mmA<-ifelse((dA[1] %in% cA & dA[2] %in% cA) | (dA[1] %in% cA & (is.na(dA[2]) | dA[2] == "")), 0,
+  #             ifelse(dA[1] %in% cA | dA[2] %in% cA, 1,
+  #                    ifelse(!dA[1] %in% cA & (is.na(dA[2]) | dA[2] == ""), 1,
+  #                           ifelse(dA[1] == dA[2], 1,2))))
+  #
+  # mmB<-ifelse((dB[1] %in% cB & dB[2] %in% cB) | (dB[1] %in% cB & (is.na(dB[2]) | dB[2] == "")), 0,
+  #             ifelse(dB[1] %in% cB | dB[2] %in% cB, 1,
+  #                    ifelse(!dB[1] %in% cB & (is.na(dB[2]) | dB[2] == ""), 1,
+  #                           ifelse(dB[1] == dB[2], 1,2))))
+  #
+  # mmDR<-ifelse((dDR[1] %in% cDR & dDR[2] %in% cDR) | (dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == "")), 0,
+  #              ifelse(dDR[1] %in% cDR | dDR[2] %in% cDR, 1,
+  #                     ifelse(!dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == ""), 1,
+  #                            ifelse(dDR[1] == dDR[2],1,2))))
+
 }
 
 #' Matchability from D10K

@@ -7,7 +7,7 @@
 hla_sample(n, replace, origin)
 }
 \arguments{
-\item{n}{An integer to define the number of rows}
+\item{n}{A positive integer to define the number of rows}
 
 \item{replace}{A logical value for sampling with replacement}
 

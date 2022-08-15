@@ -14,21 +14,19 @@ test_that("data frame with HLA haplotypes",{
   }
 
   expect_error(
-    abo(hla_sample = -1)
+    hla_sample(n = -1)
   )
   expect_error(
-    abo(hla_sample = 'x')
+    hla_sample(n = 'x')
+  )
+  expect_error(
+    hla_sample(replace = 0)
+  )
+  expect_error(
+    hla_sample(replace = 'x')
   )
 
-  expect_error(
-    abo(replace = 1)
-  )
-  expect_error(
-    abo(replace = 0)
-  )
-  expect_error(
-    abo(replace = 'X')
-  )
+
 })
 
 
@@ -49,6 +47,8 @@ test_that("ABO blood group vector", {
   expect_error(
     abo(seed.number = 'x')
   )
+  expect_error(abo(probs = c(1,1,1,1)))
+  expect_error(abo(probs = c(0.5,0.25,0.25)))
 
 
 })
@@ -68,6 +68,8 @@ test_that("vector with cPRA values", {
 
   expect_error(cpra(n = -1))
   expect_error(cpra(n = 'x'))
+  expect_error(cpra(probs = c(1,1,1,1)))
+  expect_error(cpra(probs = c(0.5,0.25,0.25)))
 })
 
 test_that("time on dialysis", {

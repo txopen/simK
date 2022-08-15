@@ -33,7 +33,7 @@ hla_sample_mndp <- function(n, replace, origin){
 #' A data frame with HLA typing
 #'
 #' @description Returns a data frame with HLA-A, -B and -DRB1 typing
-#' @param n An integer to define the number of rows
+#' @param n A positive integer to define the number of rows
 #' @param replace A logical value for sampling with replacement
 #' @param origin A character value from options: 'PT', 'API', 'AFA', 'CAU' and 'HIS'
 #' @return A data frame
@@ -47,7 +47,7 @@ hla_sample <- function(n, replace, origin){
 
   if(!origin %in% c('PT','API','AFA','CAU','HIS')){stop("Origin is not valid! Valid options: 'PT','API','AFA','CAU','HIS'")}
 
-  if(!is.numeric(n)){stop("`n` must be a single number!")}
+  if(!is.numeric(n) | n < 1){stop("`n` must be a single number!")}
   if(!is.logical(replace)){stop("`replace` must be logical (TRUE or FALSE)")}
   #if(!origin %in% c('PT', 'API', 'AFA', 'CAU', 'HIS')){stop("`origin` is no valid!")}
 

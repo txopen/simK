@@ -7,6 +7,13 @@ test_that("number of HLA mm", {
                c(mmA = 2, mmB = 1, mmDR = 0, mmHLA = 3))
   expect_equal(mmHLA()["mmHLA"][[1]],
                (mmHLA()["mmA"] + mmHLA()["mmB"] + mmHLA()["mmDR"])[[1]])
+
+  expect_error(mmHLA(dA = c(1,2)))
+  expect_error(mmHLA(dB = c(1,2)))
+  expect_error(mmHLA(dDR = c(1,2)))
+  expect_error(mmHLA(cA = c(1,2)))
+  expect_error(mmHLA(cB = c(1,2)))
+  expect_error(mmHLA(dcDR = c(1,2)))
 })
 
 test_that("Matchability from D10K", {
