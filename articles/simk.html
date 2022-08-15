@@ -50,6 +50,14 @@
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/candidates.html">Wait list from scratch</a>
+    <a class="dropdown-item" href="../articles/donors.html">Donors from scratch</a>
+    <a class="dropdown-item" href="../articles/simk.html">Introduction to simK</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -160,16 +168,16 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 13</span></span></span>
 <span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age  cPRA hiper dialysis</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37     0 FALSE       64</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42     0 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68     0 FALSE       64</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46     0 FALSE       64</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47    76 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71    25 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52    91 TRUE        79</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26     0 FALSE       64</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35     0 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> K1    O     1     29    8     44    11    7        37     0 FALSE       80</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> K2    A     2     3     7     57    4     8        42     0 FALSE       49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> K3    O     11    33    14    35    1     13       68     0 FALSE       49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> K4    O     24    30    49    58    11    11       46     0 FALSE       36</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> K5    A     2     3     7     51    1     13       47    76 FALSE       38</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> K6    A     30    68    15    18    3     4        71    25 FALSE       44</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> K7    O     3     26    18    40    11    13       52    91 TRUE        99</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> K8    O     1     1     7     8     3     13       26     0 FALSE       69</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> K9    A     3     3     7     44    15    8        35     0 FALSE       27</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> K10   A     11    29    44    57    7     7        38     0 FALSE       10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: urgent &lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `colnames()` to see all variable names</span></span></span></code></pre></div>
 <p>For a given number of <code>n</code> rows, a data frame is generated with columns:</p>
