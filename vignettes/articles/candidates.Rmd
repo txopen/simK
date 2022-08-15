@@ -51,7 +51,7 @@ candidates$cPRA <- cpra(n = nrow(candidates), probs = c(0.7, 0.1, 0.1, 0.1))
 
 # and we can also classify those hipersensitised patients
 candidates$hiper <- candidates$cPRA > 85
-candidates$cPRA <- cpra()
+
 ```
 
 Time on dialysis (in months) is computed according to blood group and hipersensitation status:
