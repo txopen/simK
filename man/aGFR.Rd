@@ -4,7 +4,7 @@
 \alias{aGFR}
 \title{Gives a eGFR by age}
 \usage{
-aGFR(age = 43, seed.number = 123)
+aGFR(age = 43, seed.number = NA)
 }
 \arguments{
 \item{age}{An integer for age (values between 1 and 99).}
@@ -19,6 +19,6 @@ Returns a value for the Estimated Glomerular Filtration Rate
 (eGFR) by age as described by https://www.kidney.org/atoz/content/gfr.
 }
 \examples{
-aGFR(age = 43, seed.number = 123)
+aGFR(age = 43, seed.number = NA)
 }
 \concept{clinical_parameters}

@@ -54,7 +54,7 @@ donors_df <- function(n = 10, replace = TRUE,
 
     df<-df %>%
       dplyr::mutate(GFR = purrr::map_dbl(age,
-                                         ~aGFR(age = .x)),
+                                         ~aGFR(age = .x, seed.number = NA)),
              UKKDRI = transplantr::ukkdri(age = age, height = height,
                                           htn = hypertension, sex = sex,
                                           cmv = cmv, gfr = GFR,
@@ -128,7 +128,7 @@ candidates_df <- function(n = 10, replace = TRUE,
     dplyr::mutate(hiper = cPRA > 85,
                   dialysis = purrr::map2_dbl(.x = bg,
                                       .y = hiper,
-                                      ~dial(hiper = .y, bg = .x, seed.number = seed.number))) %>%
+                                      ~dial(hiper = .y, bg = .x, seed.number = NA))) %>%
     dplyr::relocate(urgent, .after = tidyselect::last_col())
 
   if(uk == TRUE){

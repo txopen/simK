@@ -108,21 +108,36 @@ abo <- function(n = 100, probs = c(0.4658, 0.0343, 0.077, 0.4229), seed.number =
 #' @param seed.number Seed for pseudo random number generator.
 #' @return A value from a normal distribution.
 #' @examples
-#' aGFR(age = 43, seed.number = 123)
+#' aGFR(age = 43, seed.number = NA)
 #' @export
 #' @concept clinical_parameters
-aGFR <- function(age = 43, seed.number = 123){
+aGFR <- function(age = 43, seed.number = NA){
 
   if(!is.numeric(age) | age < 1 | age > 99){stop("`age` must be between 1 and 99!")}
 
-  set.seed(seed.number)
+  if(is.na(seed.number)){
+    res1 <- truncnorm::rtruncnorm(n = 1, a=106, b=122, mean = 116, sd = 10)
+    res2 <- truncnorm::rtruncnorm(n = 1, a=97, b=117, mean = 107, sd = 10)
+    res3 <- truncnorm::rtruncnorm(n = 1, a=89, b=109, mean = 99, sd = 10)
+    res4 <- truncnorm::rtruncnorm(n = 1, a=83, b=103, mean = 93, sd = 10)
+    res5 <- truncnorm::rtruncnorm(n = 1, a=75, b=95, mean = 85, sd = 10)
+    res6 <- truncnorm::rtruncnorm(n = 1, a=65, b=85, mean = 75, sd = 10)
+  } else {
+    set.seed(seed.number)
+    res1 <- truncnorm::rtruncnorm(n = 1, a=106, b=122, mean = 116, sd = 10)
+    res2 <- truncnorm::rtruncnorm(n = 1, a=97, b=117, mean = 107, sd = 10)
+    res3 <- truncnorm::rtruncnorm(n = 1, a=89, b=109, mean = 99, sd = 10)
+    res4 <- truncnorm::rtruncnorm(n = 1, a=83, b=103, mean = 93, sd = 10)
+    res5 <- truncnorm::rtruncnorm(n = 1, a=75, b=95, mean = 85, sd = 10)
+    res6 <- truncnorm::rtruncnorm(n = 1, a=65, b=85, mean = 75, sd = 10)
+  }
 
-  res <- ifelse(age < 30, truncnorm::rtruncnorm(n = 1, a=106, b=122, mean = 116, sd = 10),
-                ifelse(age < 40, truncnorm::rtruncnorm(n = 1, a=97, b=117, mean = 107, sd = 10),
-                       ifelse(age < 50, truncnorm::rtruncnorm(n = 1, a=89, b=109, mean = 99, sd = 10),
-                              ifelse(age < 60, truncnorm::rtruncnorm(n = 1, a=83, b=103, mean = 93, sd = 10),
-                                     ifelse(age < 70, truncnorm::rtruncnorm(n = 1, a=75, b=95, mean = 85, sd = 10),
-                                            truncnorm::rtruncnorm(n = 1, a=65, b=85, mean = 75, sd = 10))))))
+  res <- ifelse(age < 30, res1,
+                ifelse(age < 40, res2,
+                       ifelse(age < 50, res3,
+                              ifelse(age < 60, res4,
+                                     ifelse(age < 70, res5,
+                                            res6)))))
 
   return(res)
 
@@ -146,12 +161,12 @@ cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123){
   if(round(sum(probs)) != 1){stop("`probs` do not sum 1!")}
   if(length(probs) != 4){stop("`probs` must be a vector with length 4!")}
 
+  set.seed(seed.number)
+
   n4 <- round(n*probs[4])
   n3 <- round(n*probs[3])
   n2 <- round(n*probs[2])
   n1 <- n - (n2+n3+n4)
-
-  set.seed(seed.number)
 
   v1 <- rep(0,n1)
   v2 <- extraDistr::rtpois(n = n2, lambda = 30, a = 1, b = 50)
@@ -168,23 +183,31 @@ cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123){
 #' @description Returns a value for time on dialysis in months by blood group and cPRA.
 #' @param hiper A logical value for hipersensitized patients (cPRA > 85%).
 #' @param bg A character value for blood group.
-#' @param seed.number Seed for pseudo random number generator.
+#' @param seed.number Seed for pseudo random number generator. When `NA` no seed is aplicable.
 #' @return A value from a normal distribution.
 #' @examples
-#' dial(hiper = TRUE, bg = 'O', seed.number = 123)
+#' dial(hiper = TRUE, bg = 'O', seed.number = NA)
 #' @export
 #' @concept clinical_parameters
-dial <- function(hiper = TRUE, bg = 'O', seed.number = 123){
+dial <- function(hiper = TRUE, bg = 'O', seed.number = NA){
 
   if(!bg %in% c('A','AB','B','O')){stop("`bg` is not valid! valid blood group: 'A','AB','B','O'")}
   if(!is.logical(hiper)){stop("`hiper` must be a logical value!")}
 
-  set.seed(seed.number)
+  if(is.na(seed.number)){
+    dial1 <- round(rnorm(1, 35,20))
+    dial2 <- round(rnorm(1, 70,20))
+    dial3 <- round(rnorm(1, 85,20))
 
-  dial1 <- round(rnorm(1, 35,20))
+  } else {
+    set.seed(seed.number)
+    dial1 <- round(rnorm(1, 35,20))
+    dial2 <- round(rnorm(1, 70,20))
+    dial3 <- round(rnorm(1, 85,20))
+  }
 
-  res <- ifelse(hiper == TRUE & bg == 'O', round(rnorm(1, 85,20)),
-                ifelse(hiper == TRUE | bg == 'O', round(rnorm(1, 70,20)),
+  res <- ifelse(hiper == TRUE & bg == 'O', dial3,
+                ifelse(hiper == TRUE | bg == 'O', dial2,
                        ifelse(dial1 < 0, 0, dial1)
                        ))
 

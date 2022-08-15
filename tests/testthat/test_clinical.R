@@ -4,6 +4,19 @@ test_that("data frame with NMDP HLA haplotypes",{
   for(i in 1:length(invalid.origin)){
     expect_error(hla_sample_mndp(origin = invalid.origin[[i]]))
   }
+
+  expect_error(
+    hla_sample_mndp(n = -1)
+  )
+  expect_error(
+    hla_sample_mndp(n = 'x')
+  )
+  expect_error(
+    hla_sample_mndp(replace = 0)
+  )
+  expect_error(
+    hla_sample_mndp(replace = 'x')
+  )
 })
 
 test_that("data frame with HLA haplotypes",{
@@ -55,11 +68,13 @@ test_that("ABO blood group vector", {
 
 test_that("eGFR by age", {
   expect_equal(round(aGFR(age = 43, seed.number = 123),0),
-               95)
+               108)
   expect_error(aGFR(age = -1))
   expect_error(aGFR(age = 'x'))
   expect_error(aGFR(age = 1000))
   expect_error(aGFR(age = 0))
+
+  expect_error(aGFR(seed.number = 'x'))
 })
 
 test_that("vector with cPRA values", {
@@ -80,5 +95,7 @@ test_that("time on dialysis", {
   expect_error(dial(bg = 0))
   expect_error(dial(hiper = 'x'))
   expect_error(dial(hiper = 1))
+
+  expect_error(dial(seed.number = 'x'))
 })
 

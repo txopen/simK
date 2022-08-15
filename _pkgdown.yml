@@ -8,6 +8,7 @@ navbar:
     left:
     - setup
     - reference
+    - articles
     - news
     right:
     - search

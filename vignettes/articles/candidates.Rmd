@@ -1,0 +1,78 @@
+---
+title: "Wait list from scratch"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(simK)
+```
+
+Simulating a kidney transplant waiting list is easy to do, with functions from {simK}.
+
+## Candidates
+
+The minimum information needed for kidney transplant candidates encompasses: HLA typing, ABO blood group, cPRA, age, time on dialysis, and clinical urgency.
+
+We can start by defining our wait list size (`n`) and patients' HLA according to its `origin`:
+
+```{r}
+candidates <- hla_sample(n = 100, replace = TRUE, origin = 'API')
+
+# lets create also an unique identifier for each patient
+candidates$ID <- paste0('R', rownames(candidates))
+
+candidates
+```
+
+
+Patients' blood group can be added with `abo()` and their ages with function `ages()`:
+
+```{r}
+# we just have to define sample size and probabilities for A, AB, B and O groups (in this order)
+candidates$bg <- abo(n = nrow(candidates), probs = c(0.4, 0.04, 0.06, 0.5))
+
+# for patients' ages we define a trimmed normal distributed value with mean and sd
+candidates$age <- ages(n = nrow(candidates), lower = 18, upper = 80, mean = 65, sd = 30)
+
+# let's take a look at our transplant candidates
+candidates
+```
+
+Now we must define groups of sensitization to transplant candidates according to a 4 elements vector of probabilities corresponding to cPRA = 0%; 1% < cPRA < 50%; 50% < cPRA < 85%; and cPRA > 85%, respectively. 
+
+```{r}
+candidates$cPRA <- cpra(n = nrow(candidates), probs = c(0.7, 0.1, 0.1, 0.1))
+
+# and we can also classify those hipersensitised patients
+candidates$hiper <- candidates$cPRA > 85
+candidates$cPRA <- cpra()
+```
+
+Time on dialysis (in months) is computed according to blood group and hipersensitation status:
+
+```{r}
+candidates <- candidates |> 
+  dplyr::rowwise() |>
+  dplyr::mutate(dialysis = dial(hiper = hiper, bg = bg, seed.number = NA)) |>
+  dplyr::ungroup()
+
+candidates
+```
+
+And we can finish it defining patients clinical urgent (if any):
+
+```{r}
+# let´s asume we have 5% of candidates that are clinical urgent for transplantation
+candidates$urgent <- sample(c(0,1), size = 100, replace = TRUE, prob = c(0.95,0.05))
+
+# reording the columns
+candidates |>
+  dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age, cPRA, hiper, dialysis, urgent)
+```
+

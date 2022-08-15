@@ -8,3 +8,4 @@
 ^README\.Rmd$
 ^rascunho\.R$
 ^codecov\.yml$
+^vignettes/articles$

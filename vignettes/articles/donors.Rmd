@@ -1,0 +1,49 @@
+---
+title: "Donors from scratch"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(simK)
+```
+
+## Donors dataset.
+
+We can build from scratch a data frame with a pool of donors using functions from {simK} and defining it's arguments as we pleased.
+
+The minimum caracteristcs for potential deseaced donors are: blood group, HLA typing and age. So, we start with HLA typing and defining pool size (`n`) and it's `origin`:
+
+```{r}
+donors <- hla_sample(n = 100, replace = TRUE, origin = 'API')
+
+# here we create a column with an unique identifier:
+donors$ID <- paste0('D', rownames(donors))
+
+donors
+```
+
+A column with donors blood group can be added with function `abo()`, we just have to give donors pool size and a vector with ABO genotypic frequencies (`probs`):
+
+```{r}
+donors$bg <- abo(n = nrow(donors), probs = c(0.46, 0.03, 0.08, 0.43))
+
+donors
+```
+
+Vector on `probs` must be corresponde to A, AB, B and O probabilities (in that order).
+
+And now we just have to add a vector with donors' age with function `ages()`:
+
+```{r}
+donors$age <- ages(n = nrow(donors), lower = 18, upper = 80, mean = 55, sd = 25)
+
+# and we can order 
+donors |> dplyr::select(ID, bg, A1, A2, B1, B2, DR1, DR2, age)
+```
+
