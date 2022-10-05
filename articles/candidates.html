@@ -118,18 +118,17 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 7</span></span></span>
 <span><span class="co">#&gt;    A1    A2    B1    B2    DR1   DR2   ID   </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 1     33    37    58    11    7     R1   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11    24    48    60    11    12    R2   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 23    11    51    18    11    7     R3   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 24    33    54    44    4     9     R4   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11    11    60    62    9     4     R5   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    11    51    60    9     4     R6   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    24    35    38    15    15    R7   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 26    11    39    13    4     16    R8   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 33    34    46    38    12    4     R9   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11    33    38    58    15    3     R10  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 26    2     55    38    4     8     R1   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 24    24    61    60    8     9     R2   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 68    2     62    38    11    16    R3   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 26    2     7     62    1     15    R4   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 24    24    61    63    15    13    R5   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    33    60    58    9     14    R6   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 26    30    39    13    8     7     R7   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 24    24    52    35    15    12    R8   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 68    24    39    52    16    7     R9   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2     2     70    38    4     16    R10  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span></code></pre></div>
 <p>Patients’ blood group can be added with <code><a href="../reference/abo.html">abo()</a></code> and their ages with function <code><a href="../reference/ages.html">ages()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># we just have to define sample size and probabilities for A, AB, B and O groups (in this order)</span></span>
@@ -143,25 +142,23 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 9</span></span></span>
 <span><span class="co">#&gt;    A1    A2    B1    B2    DR1   DR2   ID    bg      age</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 1     33    37    58    11    7     R1    O        48</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11    24    48    60    11    12    R2    A        58</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 23    11    51    18    11    7     R3    O        67</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 24    33    54    44    4     9     R4    A        69</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11    11    60    62    9     4     R5    B        79</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    11    51    60    9     4     R6    O        27</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    24    35    38    15    15    R7    A        44</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 26    11    39    13    4     16    R8    A        52</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 33    34    46    38    12    4     R9    A        76</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11    33    38    58    15    3     R10   O        77</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 26    2     55    38    4     8     R1    O        48</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 24    24    61    60    8     9     R2    A        58</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 68    2     62    38    11    16    R3    O        67</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 26    2     7     62    1     15    R4    A        69</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 24    24    61    63    15    13    R5    B        79</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    33    60    58    9     14    R6    O        27</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 26    30    39    13    8     7     R7    A        44</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 24    24    52    35    15    12    R8    A        52</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 68    24    39    52    16    7     R9    A        76</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2     2     70    38    4     16    R10   O        77</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span></code></pre></div>
 <p>Now we must define groups of sensitization to transplant candidates according to a 4 elements vector of probabilities corresponding to cPRA = 0%; 1% &lt; cPRA &lt; 50%; 50% &lt; cPRA &lt; 85%; and cPRA &gt; 85%, respectively.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">candidates</span><span class="op">$</span><span class="va">cPRA</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cpra.html">cpra</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">candidates</span><span class="op">)</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># and we can also classify those hipersensitised patients</span></span>
-<span><span class="va">candidates</span><span class="op">$</span><span class="va">hiper</span> <span class="op">&lt;-</span> <span class="va">candidates</span><span class="op">$</span><span class="va">cPRA</span> <span class="op">&gt;</span> <span class="fl">85</span></span>
-<span><span class="va">candidates</span><span class="op">$</span><span class="va">cPRA</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cpra.html">cpra</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">candidates</span><span class="op">$</span><span class="va">hiper</span> <span class="op">&lt;-</span> <span class="va">candidates</span><span class="op">$</span><span class="va">cPRA</span> <span class="op">&gt;</span> <span class="fl">85</span></span></code></pre></div>
 <p>Time on dialysis (in months) is computed according to blood group and hipersensitation status:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">candidates</span> <span class="op">&lt;-</span> <span class="va">candidates</span> <span class="op">|&gt;</span> </span>
@@ -173,18 +170,17 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 12</span></span></span>
 <span><span class="co">#&gt;    A1    A2    B1    B2    DR1   DR2   ID    bg      age  cPRA hiper dialysis</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 1     33    37    58    11    7     R1    O        48     0 FALSE       66</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11    24    48    60    11    12    R2    A        58    73 FALSE       57</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 23    11    51    18    11    7     R3    O        67     0 FALSE       90</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 24    33    54    44    4     9     R4    A        69    37 FALSE       40</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11    11    60    62    9     4     R5    B        79    82 FALSE       23</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    11    51    60    9     4     R6    O        27     0 FALSE       49</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    24    35    38    15    15    R7    A        44    21 FALSE       40</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 26    11    39    13    4     16    R8    A        52     0 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 33    34    46    38    12    4     R9    A        76     0 FALSE        2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11    33    38    58    15    3     R10   O        77     0 FALSE       82</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 26    2     55    38    4     8     R1    O        48     0 FALSE       66</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 24    24    61    60    8     9     R2    A        58    73 FALSE       57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 68    2     62    38    11    16    R3    O        67     0 FALSE       90</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 26    2     7     62    1     15    R4    A        69    37 FALSE       40</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 24    24    61    63    15    13    R5    B        79    82 FALSE       23</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11    33    60    58    9     14    R6    O        27     0 FALSE       49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 26    30    39    13    8     7     R7    A        44    21 FALSE       40</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 24    24    52    35    15    12    R8    A        52     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 68    24    39    52    16    7     R9    A        76     0 FALSE        2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2     2     70    38    4     16    R10   O        77     0 FALSE       82</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows</span></span></span></code></pre></div>
 <p>And we can finish it defining patients clinical urgent (if any):</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># let´s asume we have 5% of candidates that are clinical urgent for transplantation</span></span>
@@ -196,18 +192,17 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 13</span></span></span>
 <span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age  cPRA hiper dialysis</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> R1    O     1     33    37    58    11    7        48     0 FALSE       66</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> R2    A     11    24    48    60    11    12       58    73 FALSE       57</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> R3    O     23    11    51    18    11    7        67     0 FALSE       90</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> R4    A     24    33    54    44    4     9        69    37 FALSE       40</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> R5    B     11    11    60    62    9     4        79    82 FALSE       23</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> R6    O     11    11    51    60    9     4        27     0 FALSE       49</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> R7    A     24    24    35    38    15    15       44    21 FALSE       40</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> R8    A     26    11    39    13    4     16       52     0 FALSE       16</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> R9    A     33    34    46    38    12    4        76     0 FALSE        2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> R10   O     11    33    38    58    15    3        77     0 FALSE       82</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows, and 1 more variable: urgent &lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> R1    O     26    2     55    38    4     8        48     0 FALSE       66</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> R2    A     24    24    61    60    8     9        58    73 FALSE       57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> R3    O     68    2     62    38    11    16       67     0 FALSE       90</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> R4    A     26    2     7     62    1     15       69    37 FALSE       40</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> R5    B     24    24    61    63    15    13       79    82 FALSE       23</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> R6    O     11    33    60    58    9     14       27     0 FALSE       49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> R7    A     26    30    39    13    8     7        44    21 FALSE       40</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> R8    A     24    24    52    35    15    12       52     0 FALSE       16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> R9    A     68    24    39    52    16    7        76     0 FALSE        2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> R10   O     2     2     70    38    4     16       77     0 FALSE       82</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 90 more rows, and 1 more variable: urgent &lt;dbl&gt;</span></span></span></code></pre></div>
 </div>
   </main>
 </div>
@@ -216,7 +211,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Bruno Lima, TxOR.</p>
+<p>Developed by <a href="https://www.linkedin.com/in/oficinadebioestatistica/" class="external-link">Bruno Lima</a>, <a href="https://txor.netlify.app/" class="external-link"><img src="https://static.wixstatic.com/media/3e838e_d25efb43bd2e4f8597ad3bf7c180c880~mv2.jpg/v1/fill/w_92,h_35,al_c,lg_1,q_80,enc_auto/3e838e_d25efb43bd2e4f8597ad3bf7c180c880~mv2.jpg" height="24"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
