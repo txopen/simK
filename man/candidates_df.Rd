@@ -12,8 +12,8 @@ candidates_df(
   probs.cpra = c(0.7, 0.1, 0.1, 0.1),
   lower = 18,
   upper = 75,
-  mean = 45,
-  sd = 15,
+  mean.age = 45,
+  sd.age = 15,
   prob.dm = 0.12,
   prob.urgent = 0.05,
   uk = FALSE,
@@ -35,9 +35,9 @@ candidates_df(
 
 \item{upper}{An integer for ages' upper limit.}
 
-\item{mean}{A value for mean age's distribution.}
+\item{mean.age}{A value for mean age's distribution.}
 
-\item{sd}{A value for standard deviation age's distribution.}
+\item{sd.age}{A value for standard deviation age's distribution.}
 
 \item{prob.dm}{A value for the probability of having Diabetes Mellitus.}
 

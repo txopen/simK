@@ -183,27 +183,44 @@ cpra <- function(n = 100, probs = c(0.7, 0.1, 0.1, 0.1), seed.number = 123){
 #' @description Returns a value for time on dialysis in months by blood group and cPRA.
 #' @param hiper A logical value for hipersensitized patients (cPRA > 85%).
 #' @param bg A character value for blood group.
-#' @param seed.number Seed for pseudo random number generator. When `NA` no seed is aplicable.
+#' @param mean.dial1 time on dialysis mean value for patients that are neither Hipersensitized nor blood group O, used on Normal distribution for value generation.
+#' @param mean.dial2 time on dialysis mean value for patients that are Hipersensitized or blood group O, used on Normal distribution for value generation.
+#' @param mean.dial3 time on dialysis mean value for patients that are Hipersensitized and blood group O, used on Normal distribution for value generation.
+#' @param sd.dial time on dialysis standard deviation, used on Normal distribution for value generation.
+#' @param seed.number Seed for pseudo random number generator. When `NA` no seed is applicable.
 #' @return A value from a normal distribution.
 #' @examples
-#' dial(hiper = TRUE, bg = 'O', seed.number = NA)
+#' dial(hiper = TRUE, bg = 'O',
+#' mean.dial1 = 35, mean.dial2 = 70, mean.dial3 = 85,
+#' seed.number = NA)
 #' @export
 #' @concept clinical_parameters
-dial <- function(hiper = TRUE, bg = 'O', seed.number = NA){
+dial <- function(hiper = TRUE, bg = 'O',
+                 mean.dial1 = 35,
+                 mean.dial2 = 70,
+                 mean.dial3 = 85,
+                 sd.dial = 20,
+                 seed.number = NA){
 
   if(!bg %in% c('A','AB','B','O')){stop("`bg` is not valid! valid blood group: 'A','AB','B','O'")}
   if(!is.logical(hiper)){stop("`hiper` must be a logical value!")}
 
   if(is.na(seed.number)){
-    dial1 <- round(rnorm(1, 35,20))
-    dial2 <- round(rnorm(1, 70,20))
-    dial3 <- round(rnorm(1, 85,20))
+    dial1 <- round(rnorm(1, mean.dial1, sd.dial))
+    dial1 <- ifelse(dial1 < 0, 0, dial1)
+    dial2 <- round(rnorm(1, mean.dial2, sd.dial))
+    dial2 <- ifelse(dial2 < 0, 0, dial2)
+    dial3 <- round(rnorm(1, mean.dial3, sd.dial))
+    dial3 <- ifelse(dial3 < 0, 0, dial3)
 
   } else {
     set.seed(seed.number)
-    dial1 <- round(rnorm(1, 35,20))
-    dial2 <- round(rnorm(1, 70,20))
-    dial3 <- round(rnorm(1, 85,20))
+    dial1 <- round(rnorm(1, mean.dial1, sd.dial))
+    dial1 <- ifelse(dial1 < 0, 0, dial1)
+    dial2 <- round(rnorm(1, mean.dial2, sd.dial))
+    dial2 <- ifelse(dial2 < 0, 0, dial2)
+    dial3 <- round(rnorm(1, mean.dial3, sd.dial))
+    dial3 <- ifelse(dial3 < 0, 0, dial3)
   }
 
   res <- ifelse(hiper == TRUE & bg == 'O', dial3,

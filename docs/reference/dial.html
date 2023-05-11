@@ -62,7 +62,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dial</span><span class="op">(</span>hiper <span class="op">=</span> <span class="cn">TRUE</span>, bg <span class="op">=</span> <span class="st">"O"</span>, seed.number <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dial</span><span class="op">(</span>
+  hiper <span class="op">=</span> <span class="cn">TRUE</span>,
+  bg <span class="op">=</span> <span class="st">"O"</span>,
+  mean.dial1 <span class="op">=</span> <span class="fl">35</span>,
+  mean.dial2 <span class="op">=</span> <span class="fl">70</span>,
+  mean.dial3 <span class="op">=</span> <span class="fl">85</span>,
+  sd.dial <span class="op">=</span> <span class="fl">20</span>,
+  seed.number <span class="op">=</span> <span class="cn">NA</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -71,8 +79,16 @@
 <dd><p>A logical value for hipersensitized patients (cPRA &gt; 85%).</p></dd>
 <dt>bg</dt>
 <dd><p>A character value for blood group.</p></dd>
+<dt>mean.dial1</dt>
+<dd><p>time on dialysis mean value for patients that are neither Hipersensitized nor blood group O, used on Normal distribution for value generation.</p></dd>
+<dt>mean.dial2</dt>
+<dd><p>time on dialysis mean value for patients that are Hipersensitized or blood group O, used on Normal distribution for value generation.</p></dd>
+<dt>mean.dial3</dt>
+<dd><p>time on dialysis mean value for patients that are Hipersensitized and blood group O, used on Normal distribution for value generation.</p></dd>
+<dt>sd.dial</dt>
+<dd><p>time on dialysis standard deviation, used on Normal distribution for value generation.</p></dd>
 <dt>seed.number</dt>
-<dd><p>Seed for pseudo random number generator. When <code>NA</code> no seed is aplicable.</p></dd>
+<dd><p>Seed for pseudo random number generator. When <code>NA</code> no seed is applicable.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -81,8 +97,10 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">dial</span><span class="op">(</span>hiper <span class="op">=</span> <span class="cn">TRUE</span>, bg <span class="op">=</span> <span class="st">'O'</span>, seed.number <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 92</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">dial</span><span class="op">(</span>hiper <span class="op">=</span> <span class="cn">TRUE</span>, bg <span class="op">=</span> <span class="st">'O'</span>,</span>
+<span class="r-in">mean.dial1 <span class="op">=</span> <span class="fl">35</span>, mean.dial2 <span class="op">=</span> <span class="fl">70</span>, mean.dial3 <span class="op">=</span> <span class="fl">85</span>,</span>
+<span class="r-in">seed.number <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dial(hiper = TRUE, bg = "O", mean.dial1 = 35, mean.dial2 = 70,     mean.dial3 = 85, seed.number = NA):</span> unused arguments (mean.dial1 = 35, mean.dial2 = 70, mean.dial3 = 85)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

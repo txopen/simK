@@ -4,14 +4,30 @@
 \alias{dial}
 \title{Gives time on dialysis in months}
 \usage{
-dial(hiper = TRUE, bg = "O", seed.number = NA)
+dial(
+  hiper = TRUE,
+  bg = "O",
+  mean.dial1 = 35,
+  mean.dial2 = 70,
+  mean.dial3 = 85,
+  sd.dial = 20,
+  seed.number = NA
+)
 }
 \arguments{
 \item{hiper}{A logical value for hipersensitized patients (cPRA > 85\%).}
 
 \item{bg}{A character value for blood group.}
 
-\item{seed.number}{Seed for pseudo random number generator. When \code{NA} no seed is aplicable.}
+\item{mean.dial1}{time on dialysis mean value for patients that are neither Hipersensitized nor blood group O, used on Normal distribution for value generation.}
+
+\item{mean.dial2}{time on dialysis mean value for patients that are Hipersensitized or blood group O, used on Normal distribution for value generation.}
+
+\item{mean.dial3}{time on dialysis mean value for patients that are Hipersensitized and blood group O, used on Normal distribution for value generation.}
+
+\item{sd.dial}{time on dialysis standard deviation, used on Normal distribution for value generation.}
+
+\item{seed.number}{Seed for pseudo random number generator. When \code{NA} no seed is applicable.}
 }
 \value{
 A value from a normal distribution.
@@ -20,6 +36,8 @@ A value from a normal distribution.
 Returns a value for time on dialysis in months by blood group and cPRA.
 }
 \examples{
-dial(hiper = TRUE, bg = 'O', seed.number = NA)
+dial(hiper = TRUE, bg = 'O',
+mean.dial1 = 35, mean.dial2 = 70, mean.dial3 = 85,
+seed.number = NA)
 }
 \concept{clinical_parameters}

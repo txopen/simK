@@ -11,8 +11,8 @@ donors_df(
   probs = c(0.4658, 0.0343, 0.077, 0.4229),
   lower = 18,
   upper = 75,
-  mean = 60,
-  sd = 12,
+  mean.age = 60,
+  sd.age = 12,
   uk = FALSE,
   seed.number = 3
 )
@@ -30,9 +30,9 @@ donors_df(
 
 \item{upper}{An integer for ages' upper limit.}
 
-\item{mean}{A value for mean on age's distribution.}
+\item{mean.age}{A value for mean on age's distribution.}
 
-\item{sd}{A value for standard deviation on age's distribution.}
+\item{sd.age}{A value for standard deviation on age's distribution.}
 
 \item{uk}{A logical value, if TRUE is also computed the Donor Risk Index (DRI)}
 
@@ -48,7 +48,7 @@ demographic caracheristics.
 \examples{
 donors_df(n = 10, replace = TRUE, origin = 'PT',
 probs = c(0.4658, 0.0343, 0.077, 0.4229),
-lower=18, upper=75, mean = 55, sd = 15,
+lower=18, upper=75, mean.age = 55, sd.age = 15,
 uk = FALSE, seed.number = 3)
 }
 \concept{generate_data}
