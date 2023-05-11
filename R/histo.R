@@ -178,7 +178,7 @@ antbs <- function(cA = c('2','29'), cB = c('7','15'), cDR = c('4','7'),
     valid.ags <- c(agA, agB, agDR)[!c(agA, agB, agDR) %in% typing]
     dd <- D10K
   } else {
-    valid.ags <- c(agA_MNDP, agB_MNDP, agDR_MNDP)[!c(agA, agB, agDR) %in% typing]
+    valid.ags <- c(agA_MNDP, agB_MNDP, agDR_MNDP)[!c(agA_MNDP, agB_MNDP, agDR_MNDP) %in% typing]
     if(origin == 'API'){dd <- D10K_API}
     if(origin == 'AFA'){dd <- D10K_AFA}
     if(origin == 'CAU'){dd <- D10K_CAU}
