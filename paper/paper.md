@@ -56,7 +56,7 @@ For a given number of `n` rows, a data frame is generated with columns:
  + age generated from a Normal distribution with `mean` and sd given by the user, values truncated by `lower`  and `upper` boundaries;
  + _DRI_ when option `uk = TRUE`, Donor Risk Index is copmputed as described by `transplantr` [@transplantr]
 
-HLA population origin has currently as valid options ‘PT’ for Portuguese [@Lima:2013a], and populations available from US National Marrow Donor Program [@nmdp:2023]:
+HLA population origin has currently as valid options ‘PT’ for Portuguese [@Lima:2013a], and populations available from US National Marrow Donor Program [@Gragert:2013]:
 
  + ‘API’ - Asian / Pacific Islander
  + ‘AFA’ - African American / Black
