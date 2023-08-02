@@ -1,0 +1,427 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{simK: Synthetic Data on Kidney Transplantation}
+\author{}
+\date{\vspace{-2.5em}02 August 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={simK: Synthetic Data on Kidney Transplantation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\hypertarget{summary}{%
+\section{Summary}\label{summary}}
+
+Synthetic data can be used to validate mathematical models and to train
+machine learning algorithms. Furthermore, distinct subject-specific
+investigations would necessitate different data. Privacy issues, data
+sensitivity, copyrights, and legal constraints, on the other hand, are
+frequently substantial impediments to accessing the necessary data. In
+the case of kidney transplantation, different countries have their own
+kidney allocation systems (KAS) in place, to balance the concepts of
+fairness and utility in the distribution of such scarce resource
+(\protect\hyperlink{ref-Lima:2020}{B. Lima and Alves 2020}). Access to
+health data is becoming increasingly restricted, however synthetic data
+can always be used to evaluate alternative KAS and its modifications.
+
+The goal of this package is to allow generate synthetic data that can be
+used on the evaluation and assessment of KAS in transplantation.
+
+\hypertarget{statement-of-need}{%
+\section{Statement of need}\label{statement-of-need}}
+
+\texttt{simK} is an R (\protect\hyperlink{ref-R}{R Core Team 2021})
+package that assembles functions that allow to generate synthetic data
+sets with demographic, clinical and immunologic characteristics of wait
+listed candidates for kidney transplantation and a pool of deceased
+donors. Data generated with \texttt{simK} are particularly useful with
+the package \texttt{histoc} (\protect\hyperlink{ref-Lima:2022a}{B. Lima
+and Reis 2022}) and the application Kidney Allocation Rules Simulator
+(KARS) (\protect\hyperlink{ref-Lima:2022b}{B. Lima, Henriques, and Alves
+2022}). With this two packages it is possible to simulate allocation
+rules implemented in Portugal (\protect\hyperlink{ref-PT}{Ministry of
+Health 2007}), in countries within Eurotransplant
+(\protect\hyperlink{ref-ET}{EuroTransplant 2020}), in the United Kingdom
+(\protect\hyperlink{ref-UK}{National Health Service Blood and Transplant
+2017}), and a system suggested by (\protect\hyperlink{ref-Lima:2013b}{B.
+Lima, Mendes, and Alves 2013}).
+
+Access to health data is generally limited by issues of confidentiality
+of individuals' information. Researchers' access to this type of data is
+usually dependent on consents for use, protocol approval, ethical review
+approval, bureaucracies for data requests, and financial costs
+(\protect\hyperlink{ref-Gonzales:2023}{Gonzales, Guruswamy, and Smith
+2023}). Nevertheless, sometimes, when it is not possible to have access
+to real data for proprietary or even logistical reasons, there is the
+alternative of using synthetic data. This type of data can be created,
+used, shared and discarded without major associated costs and is useful
+for researchers, innovators and data entrepreneurs alike, however
+different their purposes may be. Moreover, this data can be made
+available and used, publicly and free of charge, by industry,
+innovators, researchers, education and without legal, privacy, security,
+financial, and intellectual property limitations
+(\protect\hyperlink{ref-Walonoski:2018}{Walonoski et al. 2018}).
+
+The US Census Bureau defines synthetic data as:: ``microdata records
+created by statistically modeling original data and then using those
+models to generate new data values that reproduce the original data's
+statistical properties'' (\protect\hyperlink{ref-Philpott:2017}{Philpott
+2017}). Likewise, synthetic data can thus be a substitute for real
+records, useful for secondary uses that require realistic but not
+necessarily real data (\protect\hyperlink{ref-Chen:2019}{Chen et al.
+2019}).
+
+Synthetic data generation is increasingly used in research to test and
+evaluate the applicability of new statistical methods or new algorithms.
+In such cases, data synthesis seeks to provide test data that can
+reflect as accurately as possible the complexity of the real-world data
+where an algorithm under evaluation is to be applied. Moreover,
+synthetic data sets can also complement real data allowing researchers
+to increase their sample size or add variables that are not present in
+an original data set, enabling new levels of validation and comparison
+to test and develop new machine learning methods and algorithms
+(\protect\hyperlink{ref-Gonzales:2023}{Gonzales, Guruswamy, and Smith
+2023}).
+
+Several R (\protect\hyperlink{ref-R}{R Core Team 2021}) packages are
+already available to synthesize different types of data
+(\protect\hyperlink{ref-ctv:2021}{B. Lima 2021}). Although, none of
+these can be used in the specific case of KAS simulation without having
+as input your own data.
+
+The \texttt{simK} outcomes are easily verifiable, modifiable, and
+redefined, which is a clear benefit as a facilitator of transparency and
+a desired continuous improvement.
+
+\hypertarget{synthetic-data-sets}{%
+\subsection{Synthetic data sets}\label{synthetic-data-sets}}
+
+\hypertarget{donors-pool}{%
+\subsubsection{Donors' pool}\label{donors-pool}}
+
+A data frame with information for a pool of simulated donors can be
+generated with the function \texttt{donors\_df()}.
+
+For a given number of \texttt{n} rows, a data frame is generated with
+columns:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{ID} unique identifier with the prefix `D';
+\item
+  \emph{bg} with the blood group generated from the parameter probs a
+  vector with the probabilities for groups A, AB, B and O, respectively;
+\item
+  \emph{A1}, \emph{A2}, \emph{B1}, \emph{B2}, \emph{DR1}, \emph{DR2} HLA
+  typing obtained according to \texttt{origin} option (with
+  \texttt{replace\ =\ TRUE} we can generate a data frame without
+  limitations on the number of rows);
+\item
+  age generated from a Normal distribution with \texttt{mean} and sd
+  given by the user, values truncated by \texttt{lower} and
+  \texttt{upper} boundaries;
+\item
+  \emph{DRI} when option \texttt{uk\ =\ TRUE}, Donor Risk Index is
+  copmputed as described by \texttt{transplantr}
+  (\protect\hyperlink{ref-transplantr}{Asher 2020})
+\end{itemize}
+
+HLA population origin has currently as valid options `PT' for Portuguese
+(\protect\hyperlink{ref-Lima:2013a}{B. Lima and Alves 2013}), and
+populations available from US National Marrow Donor Program
+(\protect\hyperlink{ref-nmdp:2023}{NMDP 2023}):
+
+\begin{itemize}
+\tightlist
+\item
+  `API' - Asian / Pacific Islander
+\item
+  `AFA' - African American / Black
+\item
+  `CAU' - White / Caucasian
+\item
+  `HIS' - Hispanic
+\end{itemize}
+
+Defining \texttt{seed.number} allows for reproducibility.
+
+\hypertarget{kidney-transplant-candidates}{%
+\subsubsection{Kidney transplant
+candidates}\label{kidney-transplant-candidates}}
+
+A simulated waiting list for kidney transplant candidates, can be
+generated with \texttt{candidates\_df()}.
+
+For a given number of \texttt{n} rows, a data frame is generated with
+columns:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{ID} unique identifier with the prefix `K';
+\item
+  \emph{bg} with the blood group generated from the parameter
+  \texttt{probs.abo} a vector with the probabilities for groups A, AB, B
+  and O, respectively (here by default, we assumed group O patients are
+  more frequent);
+\item
+  \emph{A1}, \emph{A2}, \emph{B1}, \emph{B2}, \emph{DR1}, \emph{DR2} HLA
+  typing obtained according to \texttt{origin} option (with
+  \texttt{replace\ =\ TRUE} we can generate a data frame without
+  limitations on the number of rows);
+\item
+  \emph{age} generated from a Normal distribution with \texttt{mean} and
+  \texttt{sd} given by the user, values truncated by \texttt{lower} and
+  \texttt{upper} boundaries;
+\item
+  \emph{dialysis} time on dialysis \textbf{in months}, values computed
+  according to patients' blood group and hypersensitation status
+  (\(cPRA > 85%
+  \)): for patients with blood group O \textbf{and} Hypersinsitized time
+  on dialysis obtained from \(N(85, 20)\); for those patients blood O
+  \textbf{or} Hypersinsitized \(N(70,20)\); remaining patients have time
+  on dialysis obtained from \(N(35,20)\);
+\item
+  \emph{cPRA} patients are classified in groups with probabilities given
+  by \texttt{probs.cpra} for 0\%, 1\%-50\%, 51\%-85\% and 86\%-100\%,
+  respectively. Within the groups \textgreater{} 0\%, cPRA are computed
+  as random values from distributions \(P(\lambda = 30)\),
+  \(P(\lambda = 70)\) and \(P(\lambda = 90)\);
+\item
+  \emph{Tier} patients are classified in two Tiers as described on
+  POL186/11 -- Kidney Transplantation: Deceased Donor Organ Allocation
+  from UK transplant (\protect\hyperlink{ref-UK}{National Health Service
+  Blood and Transplant 2017}). In Tier A are patients with \(MS = 10\)
+  or \(cPRA = 100%
+  \) or \(time on dialysis > 7 years\), all remaing patients are
+  classified as Tier B;
+\item
+  \emph{MS} matchabilily score are the deciles obtained from the number
+  of donors on dataset \texttt{D10K} that are a match to each transplant
+  candidate. This score takes into account a patient's blood type, HLA
+  type and cPRA value. A patient with a MS = 1 is defined as easy to
+  match and a MS = 10 as difficult to match
+  (\protect\hyperlink{ref-UK}{National Health Service Blood and
+  Transplant 2017}).
+\item
+  \emph{RRI} when option \texttt{uk\ =\ TRUE}, Recipient Risk Index is
+  copmputed as described by \texttt{transplantr}
+  (\protect\hyperlink{ref-transplantr}{Asher 2020}). To compute
+  \emph{RRI}, variables \emph{age}, time on \emph{dialysis} (in days)
+  and the probability of being \emph{diabetic} (obtained from
+  \texttt{prob.dm}) are used. Also, we assumed all patients were on
+  dialysis at time of listing.
+\item
+  \emph{urgent} a diccotomic variavel that assumes 1 for clinical urgent
+  patients. It's generated from \texttt{prob.urgent}.
+\end{itemize}
+
+HLA population \texttt{origin} can be defined from options:
+`PT,'`API,'`AFA,'`CAU' and `HIS,' as reported for \texttt{donors\_df()}
+data frame.
+
+Defining \texttt{seed.number} allows for reproducibility.
+
+\hypertarget{input-data}{%
+\subsection{Input data}\label{input-data}}
+
+The package presented here (\texttt{simK}), returns only fully synthetic
+data because it only requires common summary statistics (that can be
+found for different populations) as inputs to generate the new
+microdata.
+
+\hypertarget{bug-reports-and-contributions}{%
+\subsection{Bug reports and
+contributions}\label{bug-reports-and-contributions}}
+
+Any bug reporting, feature requests, or other feedback will be welcomed
+by \href{https://github.com/txopen/simK/issues}{submitting an issue} in
+our repository. When reporting a bug, please ensure that a reproducible
+example of your code is included so that we may respond to your issue
+promptly.
+
+\hypertarget{funding}{%
+\section{Funding}\label{funding}}
+
+This project received the ``Antonio Morais Sarmento'' research grant
+from the Portuguese Society of Transplantation. This funding had no role
+in: study design; software development; the writing of the report;
+neither in the decision to submit the article for publication.
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-transplantr}{}}%
+Asher, J. 2020. {``Transplantr: Audit and Research Functions for
+Transplantation.''}
+\url{https://cran.r-project.org/web/packages/transplantr/index.html}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chen:2019}{}}%
+Chen, Junqiao, David Chun, Milesh Patel, Epson Chiang, and Jesse James.
+2019. {``{The validity of synthetic clinical data: A validation study of
+a leading synthetic data generator (Synthea) using clinical quality
+measures}.''} \emph{BMC Medical Informatics and Decision Making} 19 (1):
+1--9. \url{https://doi.org/10.1186/s12911-019-0793-0}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ET}{}}%
+EuroTransplant. 2020. {``{ETKAS and ESP}.''}
+\url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Gonzales:2023}{}}%
+Gonzales, Aldren, Guruprabha Guruswamy, and Scott R. Smith. 2023.
+{``{Synthetic data in health care: A narrative review}.''} \emph{PLOS
+Digital Health} 2 (1): e0000082.
+\url{https://doi.org/10.1371/journal.pdig.0000082}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ctv:2021}{}}%
+Lima, B. 2021. {``A Draft for a CRAN Task View on Synthetic Data.''}
+2021. \url{https://github.com/balima78/SyntheticData}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2013a}{}}%
+Lima, B., and H. Alves. 2013. {``{HLA-A, -C, -B, AND -DRB1 allele ic and
+haplotypic diversity in bone marrow volunteer donors from northern
+Portugal}.''} \emph{Organs, Tissues \& Cells}, no. 16: 19--26.
+\url{https://12f11c1f-960a-f627-594d-b8ce276384f7.filesusr.com/ugd/3e838e_dc548dede99a4db5869c3d2c20c2d16f.pdf?index=true}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2020}{}}%
+---------. 2020. {``{Access to kidney transplantation: a bioethical
+perspective}.''} \emph{Portuguese Journal of Nephrology \& Hypertension}
+34 (2): 76--78. \url{https://doi.org/10.32932/pjnh.2020.07.070}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2022b}{}}%
+Lima, B., T. Henriques, and H. Alves. 2022. {``{Kidney allocation rules
+simulator}.''} \emph{Transplant Immunology} 72: 101578.
+\url{https://doi.org/10.1016/j.trim.2022.101578}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2013b}{}}%
+Lima, B., M. Mendes, and H. Alves. 2013. {``{Kidney Transplant
+allocation in Portugal}.''} \emph{Portuguese Journal of Nephrology \&
+Hypertension} 27 (4): 313--16.
+\url{http://www.bbg01.com/cdn/clientes/spnefro/pjnh/46/artigo_14.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2022a}{}}%
+Lima, B., and F. Reis. 2022. {``Histoc: Histocompatibility Analysis
+Performed by Kidney Allocation Systems.''} \emph{Journal of Open Source
+Software} 7 (80): 4807. \url{https://doi.org/10.21105/joss.04807}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-PT}{}}%
+Ministry of Health. 2007. {``Ordinance Nº 6537/2007.''}
+\url{http://www.ipst.pt/files/TRANSPLANTACAO/DOACAOETRANSPLANTACAO/Despacho_6537_2007.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-UK}{}}%
+National Health Service Blood and Transplant. 2017. {``{UK Transplant
+Registry, Organ Donation and Transplantation}.''}
+\url{http://odt.nhs.uk/uk-transplant-registry/data/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-nmdp:2023}{}}%
+NMDP. 2023. {``A-b-Drb1 224 Haplotype Frequencies.''} 2023.
+\url{https://bioinformatics.bethematchclinical.org/hla-resources/haplotype-frequencies/a-b-drb1-224-haplotype-frequencies/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Philpott:2017}{}}%
+Philpott, Don. 2017. \emph{{A guide to Federal terms and Acronyms}}.
+Bernan Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R}{}}%
+R Core Team. 2021. {``R: A Language and Environment for Statistical
+Computing.''} Vienna, Austria: R Foundation for Statistical Computing.
+\url{https://www.R-project.org/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Walonoski:2018}{}}%
+Walonoski, Jason, Mark Kramer, Joseph Nichols, Andre Quina, Chris
+Moesel, Dylan Hall, Carlton Duffett, Kudakwashe Dube, Thomas Gallagher,
+and Scott McLachlan. 2018. {``{Synthea: An approach, method, and
+software mechanism for generating synthetic patients and the synthetic
+electronic health care record}.''} \emph{Journal of the American Medical
+Informatics Association} 25 (3): 230--38.
+\url{https://doi.org/10.1093/jamia/ocx079}.
+
+\end{CSLReferences}
+
+\end{document}
