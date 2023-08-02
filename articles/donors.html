@@ -117,16 +117,16 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 7</span></span></span>
 <span><span class="co">#&gt;    A1    A2    B1    B2    DR1   DR2   ID   </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11    24    13    55    15    4     D1   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2     11    55    52    12    14    D2   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11    24    62    61    4     10    D3   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11    24    35    55    11    9     D4   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 68    11    61    62    4     15    D5   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 33    26    58    61    3     9     D6   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    11    44    35    13    11    D7   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2     24    54    52    4     15    D8   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 33    33    58    60    3     12    D9   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 33    11    58    60    13    4     D10  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2     34    38    77    16    15    D1   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 24    11    62    58    4     3     D2   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 33    24    61    13    9     14    D3   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 24    24    60    52    4     15    D4   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11    2     27    35    12    4     D5   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2     2     70    44    4     7     D6   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    11    7     60    15    13    D7   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 31    1     61    44    14    7     D8   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 3     24    14    52    1     14    D9   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 24    2     38    51    15    14    D10  </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre></div>
 <p>A column with donors blood group can be added with function <code><a href="../reference/abo.html">abo()</a></code>, we just have to give donors pool size and a vector with ABO genotypic frequencies (<code>probs</code>):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -136,16 +136,16 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 8</span></span></span>
 <span><span class="co">#&gt;    A1    A2    B1    B2    DR1   DR2   ID    bg   </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11    24    13    55    15    4     D1    A    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2     11    55    52    12    14    D2    O    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11    24    62    61    4     10    D3    A    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11    24    35    55    11    9     D4    O    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 68    11    61    62    4     15    D5    B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 33    26    58    61    3     9     D6    A    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    11    44    35    13    11    D7    O    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2     24    54    52    4     15    D8    B    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 33    33    58    60    3     12    D9    O    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 33    11    58    60    13    4     D10   A    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2     34    38    77    16    15    D1    A    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 24    11    62    58    4     3     D2    O    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 33    24    61    13    9     14    D3    A    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 24    24    60    52    4     15    D4    O    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11    2     27    35    12    4     D5    B    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2     2     70    44    4     7     D6    A    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 24    11    7     60    15    13    D7    O    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 31    1     61    44    14    7     D8    B    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 3     24    14    52    1     14    D9    O    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 24    2     38    51    15    14    D10   A    </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre></div>
 <p>Vector on <code>probs</code> must be corresponde to A, AB, B and O probabilities (in that order).</p>
 <p>And now we just have to add a vector with donors’ age with function <code><a href="../reference/ages.html">ages()</a></code>:</p>
@@ -157,16 +157,16 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 9</span></span></span>
 <span><span class="co">#&gt;    ID    bg    A1    A2    B1    B2    DR1   DR2     age</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A     11    24    13    55    15    4        41</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O     2     11    55    52    12    14       49</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A     11    24    62    61    4     10       57</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O     11    24    35    55    11    9        58</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B     68    11    61    62    4     15       67</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A     33    26    58    61    3     9        23</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O     24    11    44    35    13    11       38</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B     2     24    54    52    4     15       44</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O     33    33    58    60    3     12       64</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A     33    11    58    60    13    4        65</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> D1    A     2     34    38    77    16    15       41</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> D2    O     24    11    62    58    4     3        49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> D3    A     33    24    61    13    9     14       57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> D4    O     24    24    60    52    4     15       58</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> D5    B     11    2     27    35    12    4        67</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> D6    A     2     2     70    44    4     7        23</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> D7    O     24    11    7     60    15    13       38</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> D8    B     31    1     61    44    14    7        44</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> D9    O     3     24    14    52    1     14       64</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> D10   A     24    2     38    51    15    14       65</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre></div>
 </div>
   </main>
