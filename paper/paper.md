@@ -42,6 +42,8 @@ Several R [@R] packages are already available to synthesize different types of d
 
 The `simK` outcomes are easily verifiable, modifiable, and redefined, which is a clear benefit as a facilitator of transparency and a desired continuous improvement.
 
+To get started it is available a vignette that for the [Introductio to simK](https://txopen.github.io/simK/articles/simk.html). 
+
 ## Synthetic data sets
 
 ### Donors' pool
@@ -85,7 +87,6 @@ For a given number of `n` rows, a data frame is generated with columns:
 HLA population `origin` can be defined from options: 'PT','API','AFA','CAU' and 'HIS', as reported for `donors_df()` data frame. 
   
 Defining `seed.number` allows for reproducibility.
-
 
 ## Input data
 
